@@ -5,7 +5,7 @@ import './styles/CardList.css';
 const CardList = () => {
   return (
     <section>
-      <Card />
+      <Card info={[0, 1]} />
     </section>
   )
 }
