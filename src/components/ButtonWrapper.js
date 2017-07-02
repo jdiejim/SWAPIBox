@@ -1,14 +1,14 @@
 import React from 'react';
-// import Button from './Button';
+import Button from './Button';
 import './styles/ButtonWrapper.css';
 
 const ButtonWrapper = () => {
   return (
     <section>
       ButtonWrapper
-      {/* <Button title={people} />
+      <Button title={people} />
       <Button title={planets} />
-      <Button title={vehicles} /> */}
+      <Button title={vehicles} />
     </section>
   )
 }
