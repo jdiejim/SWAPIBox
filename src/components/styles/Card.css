@@ -1,0 +1,28 @@
+.card {
+  width: 200px;
+  padding: 5px 10px;
+  border: 5px solid red;
+  border-radius: 5px;
+}
+
+.card-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-info-list {
+  padding: 0;
+  list-style: none;
+}
+
+.info {
+  margin: 0 0 10px;
+}
+
+.info-label {
+  margin: 0 0 5px;
+  border-bottom: 1px solid black;
+  font-size: 15px;
+  font-weight: 400;
+}
