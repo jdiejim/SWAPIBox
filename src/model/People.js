@@ -2,46 +2,31 @@ import { PEOPLE_URL } from '../utils/constants';
 import Person from './Person';
 
 class People {
-  constructor() {
-
+  fetchPeople(component) {
+    this.getPeople().then(people => component.setState({ people }));
   }
 
   getPeople() {
-    const people = [];
-    fetch(PEOPLE_URL)
-        .then(res => res.json())
-        .then(data => {
-          people.push(data.results.map(person => new Person(person)));
-        })
-        .catch(er => console.log(er));
-
-        console.log(this.getPerson({
-          homeworld: 'http://swapi.co/api/planets/1das/',
-          species: 'http://swapi.co/api/species/1fads/',
-        }));
-
-    return people;
+    return fetch(PEOPLE_URL)
+            .then(res => res.json())
+            .then(data => Promise.all(data.results.map(this.getPerson.bind(this))))
   }
 
-  getPerson(data) {
-    return Promise.all([this.getData(data.homeworld), this.getData(data.species)]);
+  getPerson({ name, homeworld, species }) {
+    return Promise.all([this.getHomeWorld(homeworld), this.getSpecies(species[0])])
+                  .then(res => new Person({ name, homeworld, species }, res));
   }
 
-  getData(url) {
-    return fetch(url)
-              .then(res => res.json())
-              .then(data => {
-                const obj = {};
+  getHomeWorld(obj) {
+    return fetch(obj)
+            .then(res => res.json())
+            .then(({ name, population }) => ({ homeworld: name, population }));
+  }
 
-                obj.name = data.name;
-                if (data.population) {
-                  obj.population = data.population;
-                }
-                if (data.language) {
-                  obj.language = data.language;
-                }
-                return obj;
-              });
+  getSpecies(obj) {
+    return fetch(obj)
+            .then(res => res.json())
+            .then(({ name, language }) => ({ species: name, language }));
   }
 }
 
