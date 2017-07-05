@@ -9,24 +9,24 @@ class People {
   getPeople() {
     return fetch(PEOPLE_URL)
             .then(res => res.json())
-            .then(data => Promise.all(data.results.map(this.getPerson.bind(this))))
+            .then(data => Promise.all(data.results.map(this.getPerson.bind(this))));
   }
 
   getPerson({ name, homeworld, species }) {
     return Promise.all([this.getHomeWorld(homeworld), this.getSpecies(species[0])])
-                  .then(res => new Person({ name, homeworld, species }, res));
+                  .then(res => new Person(name, res));
   }
 
-  getHomeWorld(obj) {
-    return fetch(obj)
+  getHomeWorld(url) {
+    return fetch(url)
             .then(res => res.json())
-            .then(({ name, population }) => ({ homeworld: name, population }));
+            .then(({ name: homeworld, population }) => ({ homeworld, population }));
   }
 
-  getSpecies(obj) {
-    return fetch(obj)
+  getSpecies(url) {
+    return fetch(url)
             .then(res => res.json())
-            .then(({ name, language }) => ({ species: name, language }));
+            .then(({ name: species, language }) => ({ species, language }));
   }
 }
 

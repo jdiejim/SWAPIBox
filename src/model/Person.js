@@ -1,5 +1,5 @@
 class Person {
-  constructor({ name }, [{ homeworld, population }, { species, language }]) {
+  constructor(name, [{ homeworld, population }, { species, language }]) {
     this.name = name;
     this.homeworld = homeworld;
     this.population = population;
