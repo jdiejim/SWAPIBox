@@ -3,11 +3,11 @@ import Header from './Header';
 import CardList from './CardList';
 import './styles/Main.css';
 
-const Main = ({ people }) => {
+const Main = ({ selectedData }) => {
   return (
     <section>
       <Header />
-      <CardList people={people} />
+      <CardList selectedData={selectedData} />
     </section>
   )
 }

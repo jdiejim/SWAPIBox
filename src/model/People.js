@@ -3,13 +3,14 @@ import Person from './Person';
 
 class People {
   fetchPeople(component) {
-    this.getPeople().then(people => component.setState({ people }));
+    this.getPeople()
+        .then(selectedData => component.setState({ selectedData }));
   }
 
   getPeople() {
     return fetch(PEOPLE_URL)
             .then(res => res.json())
-            .then(data => Promise.all(data.results.map(this.getPerson.bind(this))));
+            .then(({ results }) => Promise.all(results.map(this.getPerson.bind(this))));
   }
 
   getPerson({ name, homeworld, species }) {
