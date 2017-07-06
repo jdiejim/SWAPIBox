@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import People from './model/People';
+import fetchData from './model/fetchData';
 import Scroller from './components/Scroller';
 import Main from './components/Main';
 import './App.css';
@@ -8,21 +8,21 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      people: [],
+      selectedData: [],
     }
   }
 
   componentDidMount() {
-    new People().fetchPeople(this);
+    fetchData('vehicles', this)
   }
 
   render() {
-    const { people } = this.state;
+    const { selectedData } = this.state;
 
     return (
       <div className="App">
         <Scroller />
-        <Main people={people} />
+        <Main selectedData={selectedData} />
       </div>
     );
   }

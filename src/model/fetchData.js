@@ -5,8 +5,7 @@ import People from './People';
 const fetchData = (type, component) => {
   switch (type) {
     case 'people':
-    const people = new People();
-      return people.fetchPeople(component);
+      return new People().fetchPeople(component);
     case 'planets':
       return new Planets().fetchPlanets(component);
     case 'vehicles':
