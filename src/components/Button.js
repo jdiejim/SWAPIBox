@@ -2,9 +2,9 @@ import React from 'react';
 import CardList from './CardList';
 import './styles/Button.css';
 
-const Button = ( { title }) => {
+const Button = ( { title, handleClick }) => {
   return (
-    <button>
+    <button onClick={ () => handleClick(title) }>
       {title}
     </button>
   )

@@ -10,10 +10,15 @@ class App extends Component {
     this.state = {
       selectedData: [],
     }
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    fetchData('vehicles', this)
+    fetchData('people', this)
+  }
+
+  handleClick(title) {
+    fetchData(title, this);
   }
 
   render() {
@@ -22,7 +27,8 @@ class App extends Component {
     return (
       <div className="App">
         <Scroller />
-        <Main selectedData={selectedData} />
+        <Main selectedData={selectedData}
+              handleClick={this.handleClick}/>
       </div>
     );
   }
