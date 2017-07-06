@@ -1,6 +1,7 @@
 import Planets from './Planets';
 import Vehicles from './Vehicles';
 import People from './People';
+import fetchFilmData from './Film';
 
 const fetchData = (type, component) => {
   switch (type) {
@@ -10,6 +11,8 @@ const fetchData = (type, component) => {
       return new Planets().fetchPlanets(component);
     case 'vehicles':
       return new Vehicles().fetchVehicles(component);
+    case '/':
+      return fetchFilmData(component)
     default:
       return [];
   }
