@@ -1,9 +1,9 @@
 import React from 'react';
 import './styles/FavoriteButton.css';
 
-const FavoriteButton = () => {
+const FavoriteButton = ({ displayFavorites }) => {
   return (
-    <button>
+    <button onClick={displayFavorites}>
       FavoriteButton
     </button>
   )

@@ -5,6 +5,10 @@
   border-radius: 5px;
 }
 
+.card-selected {
+  background-color: yellow;
+}
+
 .card-title-wrapper {
   display: flex;
   align-items: center;
