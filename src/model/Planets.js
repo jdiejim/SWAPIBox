@@ -4,7 +4,7 @@ import Planet from './Planet';
 class Planets {
   fetchPlanets(component) {
     this.getPlanets()
-        .then(selectedData => component.setState({ selectedData, inFavorites: false }))
+        .then(selectedData => component.setState({ selectedData, inFavorites: false, planets: selectedData }))
   }
 
   getPlanets() {

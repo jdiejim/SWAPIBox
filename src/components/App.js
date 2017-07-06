@@ -10,8 +10,12 @@ class App extends Component {
     this.state = {
       selectedData: [],
       favorites: [],
-      inFavorites: false
+      inFavorites: false,
+      people: [],
+      planets: [],
+      vehicles: []
     }
+
     this.handleClick = this.handleClick.bind(this);
     this.toggleFavorites = this.toggleFavorites.bind(this);
     this.displayFavorites = this.displayFavorites.bind(this);
@@ -35,7 +39,11 @@ class App extends Component {
   }
 
   handleClick(title) {
-    fetchData(title, this);
+    if (this.state[title].length > 0) {
+      this.setState({ selectedData: this.state[title], inFavorites: false });
+    } else {
+      fetchData(title, this);
+    }
   }
 
   displayFavorites() {
