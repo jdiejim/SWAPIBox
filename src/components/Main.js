@@ -4,11 +4,11 @@ import ButtonWrapper from './ButtonWrapper';
 import CardList from './CardList';
 import './styles/Main.css';
 
-const Main = ({ selectedData }) => {
+const Main = ({ selectedData, handleClick }) => {
   return (
     <section>
       <Header />
-      <ButtonWrapper />
+      <ButtonWrapper handleClick={handleClick}/>
       <CardList selectedData={selectedData} />
     </section>
   )
