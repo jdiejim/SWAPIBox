@@ -13,7 +13,8 @@ class App extends Component {
       inFavorites: false,
       people: [],
       planets: [],
-      vehicles: []
+      vehicles: [],
+      film: {}
     }
 
     this.handleClick = this.handleClick.bind(this);
@@ -22,7 +23,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetchData('people', this);
+    fetchData('/', this);
   }
 
   toggleFavorites(info) {
@@ -52,11 +53,11 @@ class App extends Component {
   }
 
   render() {
-    const { selectedData, favorites } = this.state;
+    const { selectedData, favorites, film } = this.state;
 
     return (
       <div className="App">
-        <Scroller />
+        <Scroller film={film}/>
         <Main selectedData={selectedData}
               favorites={favorites}
               handleClick={this.handleClick}
