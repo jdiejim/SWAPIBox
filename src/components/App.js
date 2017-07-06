@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import fetchData from './model/fetchData';
-import Scroller from './components/Scroller';
-import Main from './components/Main';
-import './App.css';
+import fetchData from '../model/fetchData';
+import Scroller from './Scroller';
+import Main from './Main';
+import './styles/App.css';
 
 class App extends Component {
   constructor() {
