@@ -7,7 +7,8 @@ import './styles/Main.css';
 const Main = ({ selectedData, favorites, handleClick, toggleFavorites, displayFavorites}) => {
   return (
     <section>
-      <Header displayFavorites={displayFavorites} />
+      <Header displayFavorites={displayFavorites}
+              favorites={favorites} />
       <ButtonWrapper handleClick={handleClick} />
       <CardList selectedData={selectedData}
                 favorites={favorites}

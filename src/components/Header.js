@@ -2,11 +2,12 @@ import React from 'react';
 import FavoriteButton from './FavoriteButton';
 import './styles/Header.css';
 
-const Header = ({ displayFavorites }) => {
+const Header = ({ displayFavorites, favorites }) => {
   return (
     <section>
       Header
-      <FavoriteButton displayFavorites={displayFavorites} />
+      <FavoriteButton displayFavorites={displayFavorites}
+                      favorites={favorites}/>
     </section>
   )
 }
