@@ -8,7 +8,7 @@ class Vehicles {
       .then(({ results }) => {
         const selectedData = results.map(this.getVehicle);
 
-        component.setState({ selectedData, inFavorites: false });
+        component.setState({ selectedData, inFavorites: false, vehicles: selectedData });
       });
   }
 
