@@ -4,12 +4,15 @@ import ButtonWrapper from './ButtonWrapper';
 import CardList from './CardList';
 import './styles/Main.css';
 
-const Main = ({ selectedData, handleClick }) => {
+const Main = ({ selectedData, favorites, handleClick, toggleFavorites, displayFavorites}) => {
   return (
     <section>
-      <Header />
-      <ButtonWrapper handleClick={handleClick}/>
-      <CardList selectedData={selectedData} />
+      <Header displayFavorites={displayFavorites}
+              favorites={favorites} />
+      <ButtonWrapper handleClick={handleClick} />
+      <CardList selectedData={selectedData}
+                favorites={favorites}
+                toggleFavorites={toggleFavorites} />
     </section>
   )
 }

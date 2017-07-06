@@ -4,7 +4,7 @@ import Person from './Person';
 class People {
   fetchPeople(component) {
     this.getPeople()
-        .then(selectedData => component.setState({ selectedData }));
+        .then(selectedData => component.setState({ selectedData, inFavorites: false}));
   }
 
   getPeople() {
