@@ -1,5 +1,6 @@
 import React from 'react';
 import { getKey } from '../utils/helper_functions';
+import { object, arrayOf, func } from 'prop-types';
 import './styles/Card.css';
 
 const Card = ({ info, toggleFavorites, favorites }) => {
@@ -30,6 +31,12 @@ const Card = ({ info, toggleFavorites, favorites }) => {
       </ul>
     </article>
   )
+}
+
+Card.propTypes = {
+  info: object,
+  toggleFavorites: func,
+  favorites: arrayOf(object)
 }
 
 export default Card;
