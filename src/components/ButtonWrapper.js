@@ -1,5 +1,7 @@
 import React from 'react';
 import Button from './Button';
+import { func } from 'prop-types';
+
 import './styles/ButtonWrapper.css';
 
 const ButtonWrapper = ({ handleClick }) => {
@@ -13,6 +15,10 @@ const ButtonWrapper = ({ handleClick }) => {
               handleClick={ handleClick } />
     </section>
   )
+}
+
+ButtonWrapper.propTypes = {
+  handleClick: func
 }
 
 export default ButtonWrapper;

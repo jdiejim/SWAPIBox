@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Scroller from './components/Scroller';
+import Scroller from '../../components/Scroller';
 
 describe('Scroller.js', () => {
   it('should render the correct component when it mounts', () => {
