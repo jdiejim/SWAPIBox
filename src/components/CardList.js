@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Card from './Card';
+import Loader from './Loader';
 import { object, arrayOf, func } from 'prop-types';
 import { getKey } from '../utils/helper_functions';
 import './styles/CardList.css';
@@ -9,7 +10,7 @@ class CardList extends Component {
     const { selectedData, favorites, toggleFavorites, inFavorites, isLoading } = this.props;
 
     if (isLoading) {
-      return <div><img src="https://s-media-cache-ak0.pinimg.com/originals/8c/eb/27/8ceb278f34e209b8a6f0ceac1ebc3dad.gif" /></div>
+      return <Loader />
     }
 
     const selectedDataArray = selectedData.map(data =>
