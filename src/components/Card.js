@@ -1,5 +1,6 @@
 import React from 'react';
 import { getKey } from '../utils/helper_functions';
+import PlanetDynamic from './PlanetDynamic';
 import { object, arrayOf, func } from 'prop-types';
 import './styles/Card.css';
 
@@ -7,11 +8,16 @@ const Card = ({ info, toggleFavorites, favorites }) => {
   if (!info) {
     return <div>card</div>
   }
-  const infoList = Object.keys(info).map(key =>
-    <div className="info" key={getKey()}>
-      <h3 className="info-label">{key}</h3>
-      <p className="info-value">{info[key]}</p>
-    </div>
+  const infoList = Object.keys(info).map(key => {
+    if (key !== 'name') {
+      return (
+        <div className="info" key={getKey()}>
+          <h3 className="info-label">{key}</h3>
+          <p className="info-value">{info[key]}</p>
+        </div>
+      )
+    }
+  }
   );
 
   const cardClass = favorites.find(e => e.name === info.name) ? 'card card-selected' : 'card';
@@ -29,6 +35,7 @@ const Card = ({ info, toggleFavorites, favorites }) => {
       <ul className="card-info-list">
         {infoList}
       </ul>
+      {/* <PlanetDynamic /> */}
     </article>
   )
 }
