@@ -12,6 +12,7 @@ const CardList = ({ selectedData, favorites, toggleFavorites }) => {
 
   return (
     <section>
+      <Card info={{name: 'name', power: 'power', hello: 'hello', my: 'my'}} favorites={[]} />
       {selectedDataArray}
     </section>
   )

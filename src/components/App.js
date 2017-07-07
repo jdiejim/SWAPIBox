@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetchData('/', this);
+    // fetchData('/', this);
   }
 
   toggleFavorites(info) {
