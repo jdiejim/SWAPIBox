@@ -1,10 +1,7 @@
 import React from 'react';
 import { getKey } from '../utils/helper_functions';
-<<<<<<< HEAD
 import PlanetDynamic from './PlanetDynamic';
-=======
 import { object, arrayOf, func } from 'prop-types';
->>>>>>> 01d0802f711e90e1af6c5202bfa5c8f1db8a1497
 import './styles/Card.css';
 
 const Card = ({ info, toggleFavorites, favorites }) => {
