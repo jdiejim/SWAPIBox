@@ -1,23 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Card from './Card';
 import { object, arrayOf, func } from 'prop-types';
 import { getKey } from '../utils/helper_functions';
 import './styles/CardList.css';
 
-const CardList = ({ selectedData, favorites, toggleFavorites, inFavorites }) => {
-  const selectedDataArray = selectedData.map(data =>
-    <Card key={getKey()}
-          info={data}
-          toggleFavorites={toggleFavorites}
-          favorites={favorites} />);
+class CardList extends Component {
+  render() {
+    const { selectedData, favorites, toggleFavorites, inFavorites, isLoading } = this.props;
 
-  const renderComponents = (!favorites.length && inFavorites) ? <div className="no-favorites">Please select some favorites to add here!!</div> : selectedDataArray;
+    if (isLoading) {
+      return <div><img src="https://s-media-cache-ak0.pinimg.com/originals/8c/eb/27/8ceb278f34e209b8a6f0ceac1ebc3dad.gif" /></div>
+    }
 
-  return (
-    <section className="card-list">
-      {renderComponents}
-    </section>
-  )
+    const selectedDataArray = selectedData.map(data =>
+      <Card key={getKey()}
+            info={data}
+            toggleFavorites={toggleFavorites}
+            favorites={favorites} />);
+
+    const renderComponents = (!favorites.length && inFavorites) ? <div className="no-favorites">Please select some favorites to add here!!</div> : selectedDataArray;
+
+    return (
+      <section className="card-list">
+        {renderComponents}
+      </section>
+    )
+  }
 }
 
 CardList.propTypes = {
