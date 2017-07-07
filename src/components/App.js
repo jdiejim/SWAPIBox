@@ -16,7 +16,6 @@ class App extends Component {
       vehicles: [],
       film: {}
     }
-
     this.handleClick = this.handleClick.bind(this);
     this.toggleFavorites = this.toggleFavorites.bind(this);
     this.displayFavorites = this.displayFavorites.bind(this);
