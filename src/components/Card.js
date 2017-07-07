@@ -35,7 +35,7 @@ const Card = ({ info, toggleFavorites, favorites }) => {
       <ul className="card-info-list">
         {infoList}
       </ul>
-      <PlanetDynamic />
+      {/* <PlanetDynamic /> */}
     </article>
   )
 }
