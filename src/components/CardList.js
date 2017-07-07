@@ -5,21 +5,12 @@ import { getKey } from '../utils/helper_functions';
 import './styles/CardList.css';
 
 class CardList extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isLoading: true
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if(JSON.stringify(nextProps) !== JSON.stringify(this.props)) {
-      this.setState({ isLoading: false })
-    }
-  }
-
   render() {
-    const { selectedData, favorites, toggleFavorites, inFavorites } = this.props;
+    const { selectedData, favorites, toggleFavorites, inFavorites, isLoading } = this.props;
+
+    if (isLoading) {
+      return <div><img src="https://s-media-cache-ak0.pinimg.com/originals/8c/eb/27/8ceb278f34e209b8a6f0ceac1ebc3dad.gif" /></div>
+    }
 
     const selectedDataArray = selectedData.map(data =>
       <Card key={getKey()}

@@ -14,7 +14,8 @@ class App extends Component {
       people: [],
       planets: [],
       vehicles: [],
-      film: {}
+      film: {},
+      isLoading: false
     }
     this.handleClick = this.handleClick.bind(this);
     this.toggleFavorites = this.toggleFavorites.bind(this);
@@ -42,6 +43,7 @@ class App extends Component {
     if (this.state[title].length > 0) {
       this.setState({ selectedData: this.state[title], inFavorites: false });
     } else {
+      this.setState({ isLoading: true })
       fetchData(title, this);
     }
   }
@@ -52,13 +54,14 @@ class App extends Component {
   }
 
   render() {
-    const { selectedData, favorites, film, inFavorites } = this.state;
+    const { selectedData, favorites, film, inFavorites, isLoading } = this.state;
 
     return (
       <div className="App">
         <Scroller film={film}/>
         <Main selectedData={selectedData}
               favorites={favorites}
+              isLoading={isLoading}
               handleClick={this.handleClick}
               toggleFavorites={this.toggleFavorites}
               displayFavorites={this.displayFavorites}
