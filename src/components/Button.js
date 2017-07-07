@@ -1,5 +1,6 @@
 import React from 'react';
-import CardList from './CardList';
+import { string, func } from 'prop-types';
+
 import './styles/Button.css';
 
 const Button = ( { title, handleClick }) => {
@@ -8,6 +9,11 @@ const Button = ( { title, handleClick }) => {
       {title}
     </button>
   )
+}
+
+Button.propTypes = {
+  title: string,
+  handleClick: func,
 }
 
 export default Button;
