@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import CardList from './components/CardList';
+import CardList from '../../components/CardList';
 
 describe('CardList.js', () => {
   it('should render the correct component when it mounts', () => {
