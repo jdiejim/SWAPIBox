@@ -53,7 +53,7 @@ class App extends Component {
   }
 
   render() {
-    const { selectedData, favorites, film } = this.state;
+    const { selectedData, favorites, film, inFavorites } = this.state;
 
     return (
       <div className="App">
@@ -62,7 +62,8 @@ class App extends Component {
               favorites={favorites}
               handleClick={this.handleClick}
               toggleFavorites={this.toggleFavorites}
-              displayFavorites={this.displayFavorites}/>
+              displayFavorites={this.displayFavorites}
+              inFavorites={inFavorites} />
       </div>
     );
   }

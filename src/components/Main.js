@@ -5,7 +5,7 @@ import CardList from './CardList';
 import { arrayOf, func, string, shape } from 'prop-types';
 import './styles/Main.css';
 
-const Main = ({ selectedData, favorites, handleClick, toggleFavorites, displayFavorites}) => {
+const Main = ({ selectedData, favorites, handleClick, toggleFavorites, displayFavorites, inFavorites }) => {
   return (
     <section>
       <Header displayFavorites={displayFavorites}
@@ -13,7 +13,8 @@ const Main = ({ selectedData, favorites, handleClick, toggleFavorites, displayFa
       <ButtonWrapper handleClick={handleClick} />
       <CardList selectedData={selectedData}
                 favorites={favorites}
-                toggleFavorites={toggleFavorites} />
+                toggleFavorites={toggleFavorites}
+                inFavorites={inFavorites} />
     </section>
   )
 }
