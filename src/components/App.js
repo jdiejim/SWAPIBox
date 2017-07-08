@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // fetchData('/', this);
+    fetchData('/', this);
     // const promises = Promise.all([
     //   fetch('http://swapi.co/api/people/').then(res => res.json()).then(data => data.results.map(e => e.name)),
     //   fetch('http://swapi.co/api/people/?page=2').then(res => res.json()).then(data => data.results.map(e => e.name)),
@@ -37,7 +37,7 @@ class App extends Component {
     //   fetch('http://swapi.co/api/people/?page=8').then(res => res.json()).then(data => data.results.map(e => e.name)),
     //   fetch('http://swapi.co/api/people/?page=9').then(res => res.json()).then(data => data.results.map(e => e.name)),
     // ])
-    //
+
     // promises.then(data => {
     //   const red = data.reduce((arr, e) => {
     //     arr.push(...e)

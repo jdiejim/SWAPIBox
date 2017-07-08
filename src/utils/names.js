@@ -35,13 +35,13 @@ const names = {
   'Wilhuff Tarkin': {
      emblem: 'empire'
    },
-  Chewbacca: {
+  'Chewbacca': {
      emblem: 'rebel'
    },
   'Han Solo': {
      emblem: 'rebel'
    },
-  Greedo: {
+  'Greedo': {
      emblem: 'bounty'
    },
   'Jabba Desilijic Tiure': {
@@ -53,10 +53,10 @@ const names = {
   'Jek Tono Porkins': {
      emblem: 'rebel'
    },
-  Yoda: {
+  'Yoda': {
      emblem: 'jedi'
    },
-  Palpatine: {
+  'Palpatine': {
      emblem: 'empire'
    },
   'Boba Fett': {
@@ -65,16 +65,16 @@ const names = {
   'IG-88': {
      emblem: 'bounty'
    },
-  Bossk: {
+  'Bossk': {
      emblem: 'bounty'
    },
   'Lando Calrissian': {
      emblem: 'rebel'
    },
-  Lobot: {
+  'Lobot': {
      emblem: 'rebel'
    },
-  Ackbar: {
+  'Ackbar': {
      emblem: 'rebel'
    },
   'Mon Mothma': {
@@ -110,10 +110,10 @@ const names = {
   'Ric Olié': {
      emblem: 'republic'
    },
-  Watto: {
+  'Watto': {
      emblem: 'normal'
    },
-  Sebulba: {
+  'Sebulba': {
      emblem: 'normal'
    },
   'Quarsh Panaka': {
@@ -134,7 +134,7 @@ const names = {
   'Dud Bolt': {
      emblem: 'normal'
    },
-  Gasgano: {
+  'Gasgano': {
      emblem: 'normal'
    },
   'Ben Quadinaros': {
@@ -188,7 +188,7 @@ const names = {
   'Dormé': {
      emblem: 'republic'
    },
-  Dooku: {
+  'Dooku': {
      emblem: 'sith'
    },
   'Bail Prestor Organa': {
@@ -227,10 +227,10 @@ const names = {
   'Shaak Ti': {
      emblem: 'jedi'
    },
-  Grievous: {
+  'Grievous': {
      emblem: 'trade'
    },
-  Tarfful: {
+  'Tarfful': {
      emblem: 'republic'
    },
   'Raymus Antilles': {
@@ -242,16 +242,16 @@ const names = {
   'Tion Medon': {
      emblem: 'normal'
    },
-  Finn: {
+  'Finn': {
      emblem: 'new'
    },
-  Rey: {
+  'Rey': {
      emblem: 'new'
    },
   'Poe Dameron': {
      emblem: 'new'
    },
-  BB8: {
+  'BB8': {
      emblem: 'new'
    },
   'Captain Phasma': {
@@ -259,7 +259,309 @@ const names = {
    },
   'Padmé Amidala': {
      emblem: 'republic'
-   }
+   },
+  'Alderaan': {
+    emblem: 'republic'
+    },
+  'Yavin IV': {
+    emblem: 'rebel'
+    },
+  'Hoth': {
+    emblem: 'rebel'
+    },
+  'Dagobah': {
+    emblem: 'jedi'
+    },
+  'Bespin': {
+    emblem: 'republic'
+    },
+  'Endor': {
+    emblem: 'empire'
+    },
+  'Naboo': {
+    emblem: 'republic'
+    },
+  'Coruscant': {
+    emblem: 'empire'
+    },
+  'Kamino': {
+    emblem: 'sith'
+    },
+  'Geonosis': {
+    emblem: 'rebel'
+    },
+  'Utapau': {
+    emblem: 'rebel'
+    },
+  'Mustafar': {
+    emblem: 'republic'
+    },
+  'Kashyyyk': {
+    emblem: 'normal'
+    },
+  'Polis Massa': {
+    emblem: 'republic'
+    },
+  'Mygeeto': {
+    emblem: 'republic'
+    },
+  'Felucia': {
+    emblem: 'republic'
+    },
+  'Cato Neimoidia': {
+    emblem: 'republic'
+    },
+  'Saleucami': {
+    emblem: 'republic'
+    },
+  'Stewjon': {
+    emblem: 'republic'
+    },
+  'Eriadu': {
+    emblem: 'republic'
+    },
+  'Corellia': {
+    emblem: 'republic'
+    },
+  'Rodia': {
+    emblem: 'republic'
+    },
+  'Nal Hutta': {
+    emblem: 'republic'
+    },
+  'Dantooine': {
+    emblem: 'republic'
+    },
+  'Bestine IV': {
+    emblem: 'republic'
+    },
+  'Ord Mantell': {
+    emblem: 'republic'
+    },
+  'unknown': {
+    emblem: 'normal'
+    },
+  'Trandosha': {
+    emblem: 'republic'
+    },
+  'Socorro': {
+    emblem: 'republic'
+    },
+  'Mon Cala': {
+    emblem: 'republic'
+    },
+  'Chandrila': {
+    emblem: 'republic'
+    },
+  'Sullust': {
+    emblem: 'republic'
+    },
+  'Toydaria': {
+    emblem: 'republic'
+    },
+  'Malastare': {
+    emblem: 'republic'
+    },
+  'Dathomir': {
+    emblem: 'republic'
+    },
+  'Ryloth': {
+    emblem: 'republic'
+    },
+  'Aleen Minor': {
+    emblem: 'republic'
+    },
+  'Vulpter': {
+    emblem: 'republic'
+    },
+  'Troiken': {
+    emblem: 'republic'
+    },
+  'Tund': {
+    emblem: 'republic'
+    },
+  'Haruun Kal': {
+    emblem: 'republic'
+    },
+  'Cerea': {
+    emblem: 'republic'
+    },
+  'Glee Anselm': {
+    emblem: 'republic'
+    },
+  'Iridonia': {
+    emblem: 'republic'
+    },
+  'Tholoth': {
+    emblem: 'republic'
+    },
+  'Iktotch': {
+    emblem: 'republic'
+    },
+  'Quermia': {
+    emblem: 'republic'
+    },
+  'Dorin': {
+    emblem: 'republic'
+    },
+  'Champala': {
+    emblem: 'republic'
+    },
+  'Mirial': {
+    emblem: 'republic'
+    },
+  'Serenno': {
+    emblem: 'republic'
+    },
+  'Concord Dawn': {
+    emblem: 'republic'
+    },
+  'Zolan': {
+    emblem: 'republic'
+    },
+  'Ojom': {
+    emblem: 'republic'
+    },
+  'Skako': {
+    emblem: 'republic'
+    },
+  'Muunilinst': {
+    emblem: 'republic'
+    },
+  'Shili': {
+    emblem: 'republic'
+    },
+  'Kalee': {
+    emblem: 'republic'
+    },
+  'Umbara': {
+    emblem: 'republic'
+    },
+  'Tatooine': {
+    emblem: 'republic'
+    },
+  'Jakku': {
+    emblem: 'republic'
+    },
+  'Sand Crawler': {
+    emblem: 'normal'
+    },
+  'T-16 skyhopper': {
+    emblem: 'normal'
+    },
+  'X-34 landspeeder': {
+    emblem: 'normal'
+    },
+  'TIE/LN starfighter': {
+    emblem: 'empire'
+    },
+  'Snowspeeder': {
+    emblem: 'rebel'
+    },
+  'TIE bomber': {
+    emblem: 'empire'
+    },
+  'AT-AT': {
+    emblem: 'empire'
+    },
+  'AT-ST': {
+    emblem: 'empire'
+    },
+  'Storm IV Twin-Pod cloud car': {
+    emblem: 'trade'
+    },
+  'Sail barge': {
+    emblem: 'bounty'
+    },
+  'Bantha-II cargo skiff': {
+    emblem: 'bounty'
+    },
+  'TIE/IN interceptor': {
+    emblem: 'empire'
+    },
+  'Imperial Speeder Bike': {
+    emblem: 'empire'
+    },
+  'Vulture Droid': {
+    emblem: 'trade'
+    },
+  'Multi-Troop Transport': {
+    emblem: 'empire'
+    },
+  'Armored Assault Tank': {
+    emblem: 'republic'
+    },
+  'Single Trooper Aerial Platform': {
+    emblem: 'empire'
+    },
+  'C-9979 landing craft': {
+    emblem: 'trade'
+    },
+  'Tribubble bongo': {
+    emblem: 'normal'
+    },
+  'Sith speeder': {
+    emblem: 'sith'
+    },
+  'Zephyr-G swoop bike': {
+    emblem: 'rebel'
+    },
+  'Koro-2 Exodrive airspeeder': {
+    emblem: 'bounty'
+    },
+  'XJ-6 airspeeder': {
+    emblem: 'republic'
+    },
+  'LAAT/i': {
+    emblem: 'republic'
+    },
+  'LAAT/c': {
+    emblem: 'republic'
+    },
+  'Tsmeu-6 personal wheel bike': {
+    emblem: 'normal'
+    },
+  'Emergency Firespeeder': {
+    emblem: 'republic'
+    },
+  'Droid tri-fighter' : {
+    emblem: 'normal'
+  },
+  'Oevvaor jet catamaran' : {
+    emblem: 'republic'
+  },
+  'Raddaugh Gnasp fluttercraft' : {
+    emblem: 'normal'
+  },
+  'Clone turbo tank': {
+    emblem: 'newRepublic'
+    },
+  'Corporate Alliance tank droid': {
+    emblem: 'newRepublic'
+    },
+  'Droid gunship': {
+    emblem: 'republic'
+    },
+  'AT-RT': {
+    emblem: 'empire'
+    },
+  'AT-TE': {
+    emblem: 'empire'
+    },
+  'SPHA': {
+    emblem: 'empire'
+    },
+  'Flitknot speeder' : {
+    emblem: 'normal'
+  },
+  'Neimoidian shuttle' : {
+    emblem: 'normal'
+  },
+  'Geonosian starfighter' : {
+    emblem: 'normal'
+  },
+
+
 };
 
 export default names;
