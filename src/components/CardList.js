@@ -27,7 +27,6 @@ const CardList = ({ selectedData, favorites, toggleFavorites, inFavorites, isLoa
 
   return (
     <section className="card-list">
-      {/* <Loader /> */}
       {renderView}
     </section>
   )

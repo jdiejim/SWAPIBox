@@ -1,6 +1,8 @@
 import React from 'react';
 import { getKey } from '../utils/helper_functions';
 import stars from '../utils/stars.svg';
+import emblems from '../utils/emblems';
+import names from '../utils/names';
 import PlanetDynamic from './PlanetDynamic';
 import { bool, object, arrayOf, func } from 'prop-types';
 import './styles/Card.css';
@@ -23,8 +25,9 @@ const Card = ({ info, toggleFavorites, favorites, activeAnim, inFavorites }) => 
   const planet = Object.keys(info).includes('terrain') ? <PlanetDynamic terrain={info.terrain.split(',')[0]} /> : <span />;
   const cardClass = favorites.find(e => e.name === info.name) && !inFavorites ? 'card card-selected ' : 'card ';
   const cardAnimation = activeAnim ? '' : 'card-animation';
+  const emblem = emblems[names[info.name].emblem];
   const bgCard = {
-    backgroundImage: `url(${stars})`
+    backgroundImage: `url(${emblem})`
   }
 
   return (
