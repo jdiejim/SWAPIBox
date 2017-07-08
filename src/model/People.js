@@ -4,11 +4,11 @@ import Person from './Person';
 class People {
   fetchPeople(component) {
     this.getPeople()
-        .then(selectedData => component.setState({ 
+        .then(selectedData => component.setState({
           selectedData,
           inFavorites: false,
           people: selectedData,
-          isLoading: false
+          isLoading: false,
         }))
         .catch(err => console.log(err));
   }

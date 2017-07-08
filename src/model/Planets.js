@@ -7,8 +7,8 @@ class Planets {
         .then(selectedData => component.setState({
           selectedData,
           inFavorites: false,
-          planets: selectedData, 
-          isLoading: false
+          planets: selectedData,
+          isLoading: false,
         }))
         .catch(err => console.log(err))
   }

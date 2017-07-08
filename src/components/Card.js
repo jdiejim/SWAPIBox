@@ -1,13 +1,15 @@
 import React from 'react';
 import { getKey } from '../utils/helper_functions';
+import stars from '../utils/stars.svg';
 import PlanetDynamic from './PlanetDynamic';
 import { object, arrayOf, func } from 'prop-types';
 import './styles/Card.css';
 
-const Card = ({ info, toggleFavorites, favorites }) => {
+const Card = ({ info, toggleFavorites, favorites, activeAnim }) => {
   if (!info) {
     return <div>card</div>
   }
+
   const infoList = Object.keys(info).map(key => {
     if (key !== 'name') {
       return (
@@ -20,10 +22,16 @@ const Card = ({ info, toggleFavorites, favorites }) => {
   }
   );
 
-  const cardClass = favorites.find(e => e.name === info.name) ? 'card card-selected' : 'card';
+  const planet = Object.keys(info).includes('terrain') ? <PlanetDynamic terrain={info.terrain.split(',')[0]} /> : <span />;
+  const cardClass = favorites.find(e => e.name === info.name) ? 'card card-selected ' : 'card ';
+  const cardAnimation = activeAnim ? '' : 'card-animation';
+  const bgCard = {
+    backgroundImage: `url(${stars})`
+  }
 
   return (
-    <article className={cardClass}>
+    <article className={cardClass + cardAnimation}>
+      <div className="bg-stars" style={bgCard}></div>
       <div className="card-title-wrapper">
         <h2 className="card-title">{info.name}</h2>
         <button
@@ -32,10 +40,12 @@ const Card = ({ info, toggleFavorites, favorites }) => {
           Star
         </button>
       </div>
-      <ul className="card-info-list">
-        {infoList}
-      </ul>
-      {/* <PlanetDynamic /> */}
+      <section className="info-wrapper">
+        <ul className="card-info-list">
+          {infoList}
+        </ul>
+        {planet}
+      </section>
     </article>
   )
 }

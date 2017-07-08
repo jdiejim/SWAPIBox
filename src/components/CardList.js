@@ -5,7 +5,7 @@ import { bool, object, arrayOf, func } from 'prop-types';
 import { getKey } from '../utils/helper_functions';
 import './styles/CardList.css';
 
-const CardList = ({ selectedData, favorites, toggleFavorites, inFavorites, isLoading }) => {
+const CardList = ({ selectedData, favorites, toggleFavorites, inFavorites, isLoading, activeAnim }) => {
   if (isLoading) {
     return <Loader />
   }
@@ -14,8 +14,10 @@ const CardList = ({ selectedData, favorites, toggleFavorites, inFavorites, isLoa
     <Card
       key={getKey()}
       info={data}
-      toggleFavorites={toggleFavorites}
+      isLoading={isLoading}
       favorites={favorites}
+      activeAnim={activeAnim}
+      toggleFavorites={toggleFavorites}
     />
   );
 
