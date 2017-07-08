@@ -16,7 +16,8 @@ class App extends Component {
       vehicles: [],
       film: {},
       isLoading: false,
-      activeAnim: false
+      activeAnim: false,
+      errorStatus: ''
     }
 
     this.handleClick = this.handleClick.bind(this);
