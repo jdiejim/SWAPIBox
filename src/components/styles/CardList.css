@@ -2,7 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 90%;
-  padding: 0 auto;
+  height: 100vh;
   margin: 0 auto;
+  padding: 25px 0;
+  background-color: #121f28;
+  overflow: scroll;
 }

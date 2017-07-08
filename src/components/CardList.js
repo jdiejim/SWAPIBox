@@ -6,10 +6,6 @@ import Loader from './Loader';
 import './styles/CardList.css';
 
 const CardList = ({ selectedData, favorites, toggleFavorites, inFavorites, isLoading, activeAnim }) => {
-  if (isLoading) {
-    return <Loader />
-  }
-
   const cards = selectedData.map(data =>
     <Card
       key={getKey()}
@@ -17,22 +13,21 @@ const CardList = ({ selectedData, favorites, toggleFavorites, inFavorites, isLoa
       isLoading={isLoading}
       favorites={favorites}
       activeAnim={activeAnim}
+      inFavorites={inFavorites}
       toggleFavorites={toggleFavorites}
     />
   );
-
   const favoriteMsg = (
-    <div
-      className="no-favorites">
+    <div className="no-favorites">
       Please select some favorites to add here!!
     </div>
-  )
-
-  const renderCards = (!favorites.length && inFavorites) ? favoriteMsg : cards;
+  );
+  const views = !favorites.length && inFavorites ? favoriteMsg : cards;
+  const renderView = isLoading ? <Loader /> : views;
 
   return (
     <section className="card-list">
-      {renderCards}
+      {renderView}
     </section>
   )
 }

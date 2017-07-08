@@ -5,7 +5,7 @@ import PlanetDynamic from './PlanetDynamic';
 import { bool, object, arrayOf, func } from 'prop-types';
 import './styles/Card.css';
 
-const Card = ({ info, toggleFavorites, favorites, activeAnim }) => {
+const Card = ({ info, toggleFavorites, favorites, activeAnim, inFavorites }) => {
   if (!info) {
     return <div>card</div>
   }
@@ -21,7 +21,7 @@ const Card = ({ info, toggleFavorites, favorites, activeAnim }) => {
                         ));
 
   const planet = Object.keys(info).includes('terrain') ? <PlanetDynamic terrain={info.terrain.split(',')[0]} /> : <span />;
-  const cardClass = favorites.find(e => e.name === info.name) ? 'card card-selected ' : 'card ';
+  const cardClass = favorites.find(e => e.name === info.name) && !inFavorites ? 'card card-selected ' : 'card ';
   const cardAnimation = activeAnim ? '' : 'card-animation';
   const bgCard = {
     backgroundImage: `url(${stars})`
