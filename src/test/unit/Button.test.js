@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Button from '../../components/Button';
 
 describe('Button.js', () => {
@@ -11,11 +11,17 @@ describe('Button.js', () => {
 
   it('Should call a function when clicked', () => {
     const mockFn = jest.fn();
-    const wrapper = shallow(<Button handleClick={mockFn}/>);
+    const wrapper = shallow(<Button handleClick={mockFn} />);
     const button = wrapper.find('button');
+
+    expect(mockFn).toHaveBeenCalledTimes(0);
 
     button.simulate('click');
 
     expect(mockFn).toHaveBeenCalledTimes(1);
+
+    button.simulate('click');
+
+    expect(mockFn).toHaveBeenCalledTimes(2);
   })
 });
