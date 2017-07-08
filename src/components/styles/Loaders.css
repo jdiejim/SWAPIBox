@@ -1,5 +1,23 @@
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotate-body {
+  50% { transform: rotate(45deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.loader {
+  animation: fadeIn 1.5s;
+}
+
 .loading-title {
   margin: 10px 0 0;
+  animation: fadeIn 1.5s;
   color: #FFF;
   font-family: Starjedi, sans-serif;
   font-size: 50px;
@@ -135,16 +153,4 @@
 .graphic:nth-of-type(3) {
   left: -4rem;
   top: 0rem;
-}
-
-@keyframes rotate {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes rotate-body {
-  50% {
-    transform: rotate(45deg);
-  }
 }

@@ -3,7 +3,7 @@ import './styles/Loaders.css';
 
 const Loader = () => {
   return(
-    <div>
+    <div className="loader">
       <h1 className="loading-title">Loading...</h1>
       <div className="bb8">
         <div className="antena antena-large"></div>
