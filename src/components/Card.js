@@ -2,7 +2,7 @@ import React from 'react';
 import { getKey } from '../utils/helper_functions';
 import stars from '../utils/stars.svg';
 import PlanetDynamic from './PlanetDynamic';
-import { object, arrayOf, func } from 'prop-types';
+import { bool, object, arrayOf, func } from 'prop-types';
 import './styles/Card.css';
 
 const Card = ({ info, toggleFavorites, favorites, activeAnim }) => {
@@ -10,17 +10,15 @@ const Card = ({ info, toggleFavorites, favorites, activeAnim }) => {
     return <div>card</div>
   }
 
-  const infoList = Object.keys(info).map(key => {
-    if (key !== 'name') {
-      return (
-        <div className="info" key={getKey()}>
-          <h3 className="info-label">{key}</h3>
-          <p className="info-value">{info[key]}</p>
-        </div>
-      )
-    }
-  }
-  );
+  const infoList = Object.keys(info)
+                         .filter(e => e !== 'name')
+                         .filter(e => info[e].length !== 0)
+                         .map(key => (
+                           <div className="info" key={getKey()}>
+                            <h3 className="info-label">{key}</h3>
+                            <p className="info-value">{info[key]}</p>
+                          </div>
+                        ));
 
   const planet = Object.keys(info).includes('terrain') ? <PlanetDynamic terrain={info.terrain.split(',')[0]} /> : <span />;
   const cardClass = favorites.find(e => e.name === info.name) ? 'card card-selected ' : 'card ';
@@ -37,13 +35,13 @@ const Card = ({ info, toggleFavorites, favorites, activeAnim }) => {
         <button
           className="card-favorite-button"
           onClick={ () => toggleFavorites(info)}>
-          Star
+          Save
         </button>
       </div>
       <section className="info-wrapper">
-        <ul className="card-info-list">
+        <section className="card-info-list">
           {infoList}
-        </ul>
+        </section>
         {planet}
       </section>
     </article>
@@ -53,7 +51,8 @@ const Card = ({ info, toggleFavorites, favorites, activeAnim }) => {
 Card.propTypes = {
   info: object,
   toggleFavorites: func,
-  favorites: arrayOf(object)
+  favorites: arrayOf(object),
+  activeAnim: bool
 }
 
 export default Card;

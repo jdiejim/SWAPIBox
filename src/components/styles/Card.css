@@ -14,10 +14,8 @@
 }
 
 .card {
-  /*flex-grow: 1;*/
   position: relative;
   width: 40%;
-  /*min-width: 40%;*/
   padding: 20px;
   margin: 10px;
   background-color: #163040;
@@ -90,8 +88,30 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 0;
+  height: 100%;
+}
+
+.card-selected .card-favorite-button {
+  opacity: 1;
 }
 
 .card-favorite-button {
+  padding: 5px 10px;
+  background-color: transparent;
+  border: 1px solid #FFF;
+  border-radius: 10px;
+  color: #FFF;
+  font-family: Starjedi, Ubuntu, sans-serif;
+  letter-spacing: 2px;
+  opacity: 0.6;
   z-index: 2;
+}
+
+.card-favorite-button:hover {
+  opacity: 1;
+}
+
+.card-favorite-button:focus {
+  outline: none;
 }

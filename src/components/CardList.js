@@ -1,8 +1,8 @@
 import React from 'react';
-import Card from './Card';
-import Loader from './Loader';
 import { bool, object, arrayOf, func } from 'prop-types';
 import { getKey } from '../utils/helper_functions';
+import Card from './Card';
+import Loader from './Loader';
 import './styles/CardList.css';
 
 const CardList = ({ selectedData, favorites, toggleFavorites, inFavorites, isLoading, activeAnim }) => {
@@ -28,11 +28,11 @@ const CardList = ({ selectedData, favorites, toggleFavorites, inFavorites, isLoa
     </div>
   )
 
-  const renderComponents = (!favorites.length && inFavorites) ? favoriteMsg : cards;
+  const renderCards = (!favorites.length && inFavorites) ? favoriteMsg : cards;
 
   return (
     <section className="card-list">
-      {renderComponents}
+      {renderCards}
     </section>
   )
 }
@@ -42,7 +42,8 @@ CardList.propTypes = {
   favorites: arrayOf(object),
   toggleFavorites: func,
   inFavorites: bool,
-  isLoading: bool
+  isLoading: bool,
+  activeAnim: bool
 }
 
 export default CardList;
