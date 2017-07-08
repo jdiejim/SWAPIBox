@@ -9,8 +9,9 @@ class Planets {
           inFavorites: false,
           planets: selectedData,
           isLoading: false,
+          errorStatus: '',
         }))
-        .catch(err => console.log(err))
+        .catch(err => component.setState({ errorStatus: 'Error fetching planets' }))
   }
 
   getPlanets() {
@@ -21,13 +22,13 @@ class Planets {
 
   getPlanet(planet) {
     return Promise.all(planet.residents.map(this.getResidents))
-                  .then(residents => new Planet(planet, residents));
+                  .then(residents => new Planet(planet, residents))
   }
 
   getResidents(url) {
     return fetch(url)
             .then(res => res.json())
-            .then(({ name }) => name);
+            .then(({ name }) => name)
   }
 }
 
