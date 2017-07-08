@@ -15,8 +15,10 @@ class App extends Component {
       planets: [],
       vehicles: [],
       film: {},
-      isLoading: false
+      isLoading: false,
+      activeAnim: false
     }
+
     this.handleClick = this.handleClick.bind(this);
     this.toggleFavorites = this.toggleFavorites.bind(this);
     this.displayFavorites = this.displayFavorites.bind(this);
@@ -24,6 +26,26 @@ class App extends Component {
 
   componentDidMount() {
     // fetchData('/', this);
+    // const promises = Promise.all([
+    //   fetch('http://swapi.co/api/people/').then(res => res.json()).then(data => data.results.map(e => e.name)),
+    //   fetch('http://swapi.co/api/people/?page=2').then(res => res.json()).then(data => data.results.map(e => e.name)),
+    //   fetch('http://swapi.co/api/people/?page=3').then(res => res.json()).then(data => data.results.map(e => e.name)),
+    //   fetch('http://swapi.co/api/people/?page=4').then(res => res.json()).then(data => data.results.map(e => e.name)),
+    //   fetch('http://swapi.co/api/people/?page=5').then(res => res.json()).then(data => data.results.map(e => e.name)),
+    //   fetch('http://swapi.co/api/people/?page=6').then(res => res.json()).then(data => data.results.map(e => e.name)),
+    //   fetch('http://swapi.co/api/people/?page=7').then(res => res.json()).then(data => data.results.map(e => e.name)),
+    //   fetch('http://swapi.co/api/people/?page=8').then(res => res.json()).then(data => data.results.map(e => e.name)),
+    //   fetch('http://swapi.co/api/people/?page=9').then(res => res.json()).then(data => data.results.map(e => e.name)),
+    // ])
+    //
+    // promises.then(data => {
+    //   const red = data.reduce((arr, e) => {
+    //     arr.push(...e)
+    //     return arr;
+    //   }, []);
+    //
+    //   console.log(red);
+    // })
   }
 
   toggleFavorites(info) {
@@ -34,16 +56,16 @@ class App extends Component {
       favorites = favorites.filter(e => e.name !== info.name)
     }
     if (this.state.inFavorites) {
-      this.setState({ selectedData: favorites, favorites });
+      this.setState({ selectedData: favorites, favorites, activeAnim: true });
     }
-    this.setState({ favorites });
+    this.setState({ favorites, activeAnim: true });
   }
 
   handleClick(title) {
     if (this.state[title].length > 0) {
-      this.setState({ selectedData: this.state[title], inFavorites: false });
+      this.setState({ selectedData: this.state[title], inFavorites: false, activeAnim: false });
     } else {
-      this.setState({ isLoading: true })
+      this.setState({ isLoading: true, activeAnim: false })
       fetchData(title, this);
     }
   }
@@ -54,7 +76,7 @@ class App extends Component {
   }
 
   render() {
-    const { selectedData, favorites, film, inFavorites, isLoading } = this.state;
+    const { selectedData, favorites, film, inFavorites, isLoading, activeAnim } = this.state;
 
     return (
       <div className="App">
@@ -62,6 +84,7 @@ class App extends Component {
         <Main selectedData={selectedData}
               favorites={favorites}
               isLoading={isLoading}
+              activeAnim={activeAnim}
               handleClick={this.handleClick}
               toggleFavorites={this.toggleFavorites}
               displayFavorites={this.displayFavorites}

@@ -1,14 +1,17 @@
 import React from 'react';
-// import {} from 'prop-types';
 import './styles/Loaders.css';
 
 const Loader = () => {
   return(
-    <div>
+    <div className="loader">
+      <h1 className="loading-title">Loading...</h1>
       <div className="bb8">
+        <div className="antena antena-large"></div>
+        <div className="antena antena-small"></div>
         <div className="bb8-head">
           <div className="eye">
             <div className="eye-reflection"></div>
+            <div className="dimple"></div>
           </div>
           <div className="line-graphic"></div>
         </div>
@@ -20,7 +23,6 @@ const Loader = () => {
           </div>
         </div>
       </div>
-      <h1>Loading...</h1>
     </div>
   )
 }

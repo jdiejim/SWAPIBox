@@ -51,4 +51,34 @@ describe('CardList.js', () => {
 
     expect(name).toEqual('Han Solo');
   });
+
+  it('should only render a loader component if loading active', () => {
+    const wrapper = shallow(
+      <CardList
+        selectedData={[]}
+        favorites={[]}
+        isLoading={true}
+      />
+    );
+
+    expect(wrapper.find('.card-list').length).toEqual(0);
+    expect(wrapper.find('Loader').length).toEqual(1);
+
+    wrapper.setProps({ isLoading: false})
+
+    expect(wrapper.find('.card-list').length).toEqual(1);
+    expect(wrapper.find('Loader').length).toEqual(0);
+  });
+
+  it('should render a message if there are no favorites', () => {
+    const wrapper = shallow(
+      <CardList
+        selectedData={[]}
+        favorites={[]}
+        inFavorites={true}
+      />
+    );
+
+    expect(wrapper.find('.no-favorites').length).toBe(1);
+  });
 });
