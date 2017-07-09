@@ -6,6 +6,7 @@ class MockComponent {
       planets: [],
       people: [],
       vehicles: [],
+      film: {},
       isLoading: true,
       errorStatus: ''
     }

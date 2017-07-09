@@ -9,6 +9,7 @@ const fetchFilmData = (component) => {
 
     component.setState({ film });
   })
+  .catch(err => component.setState({ errorStatus: 'Error fetching film' }))
 }
 
 export default fetchFilmData;
