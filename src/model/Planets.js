@@ -9,26 +9,26 @@ class Planets {
           inFavorites: false,
           planets: selectedData,
           isLoading: false,
-          errorStatus: '',
+          errorStatus: ''
         }))
-        .catch(err => component.setState({ errorStatus: 'Error fetching planets' }))
+        .catch(err => component.setState({ errorStatus: 'Error fetching planets' }));
   }
 
   getPlanets() {
     return fetch(PLANETS_URL)
             .then(res => res.json())
-            .then(({ results }) => Promise.all(results.map(this.getPlanet.bind(this))))
+            .then(({ results }) => Promise.all(results.map(this.getPlanet.bind(this))));
   }
 
   getPlanet(planet) {
     return Promise.all(planet.residents.map(this.getResidents))
-                  .then(residents => new Planet(planet, residents))
+                  .then(residents => new Planet(planet, residents));
   }
 
   getResidents(url) {
     return fetch(url)
             .then(res => res.json())
-            .then(({ name }) => name)
+            .then(({ name }) => name);
   }
 }
 

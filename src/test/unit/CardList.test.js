@@ -61,7 +61,7 @@ describe('CardList.js', () => {
       />
     );
 
-    expect(wrapper.find('.card-list').length).toEqual(0);
+    expect(wrapper.find('.card-list').length).toEqual(1);
     expect(wrapper.find('Loader').length).toEqual(1);
 
     wrapper.setProps({ isLoading: false})
