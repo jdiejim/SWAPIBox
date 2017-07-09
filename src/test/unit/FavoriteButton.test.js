@@ -32,4 +32,16 @@ describe('FavoriteButton.js', () => {
 
     expect(length).toBe(2)
   });
+
+  it('should render the correct class name if in favorites view', () => {
+    const favorites = [ { name: 'favorite1' }, { name: 'favorite2' } ];
+    const wrapper = shallow(<FavoriteButton favorites={favorites} inFavorites={false} />);
+    const wrapperInFavorites = shallow(<FavoriteButton favorites={favorites} inFavorites={true} />);
+    const length = wrapper.find('span').props().children[1];
+    const preExpected = 'favorite-button';
+    const postExpected = 'favorite-button in-favorites';
+
+    expect(wrapper.node.props.className).toBe(preExpected);
+    expect(wrapperInFavorites.node.props.className).toBe(postExpected);
+  });
 });

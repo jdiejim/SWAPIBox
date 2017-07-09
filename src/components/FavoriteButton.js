@@ -1,14 +1,15 @@
 import React from 'react';
 import xWing from '../utils/x-wing.svg';
-import { string, func, arrayOf, shape } from 'prop-types';
+import { bool, string, func, arrayOf, shape } from 'prop-types';
 import './styles/FavoriteButton.css';
 
-const FavoriteButton = ({ displayFavorites, favorites }) => {
+const FavoriteButton = ({ displayFavorites, favorites, inFavorites }) => {
   const length = favorites.length === 0 ? <span /> : <span>: {favorites.length}</span>;
   const bgImage = { backgroundImage: `url(${xWing})`};
+  const favClass = inFavorites ? 'favorite-button in-favorites' : 'favorite-button';
 
   return (
-      <button className="favorite-button" style={bgImage} onClick={displayFavorites}>
+      <button className={favClass} style={bgImage} onClick={displayFavorites}>
         <h2 className="favorite-button-label">Favorites{length}</h2>
       </button>
   );
@@ -30,7 +31,8 @@ const allData = shape({
 
 FavoriteButton.propTypes = {
   displayFavorites: func,
-  favorites: arrayOf(allData)
+  favorites: arrayOf(allData),
+  inFavorites: bool
 };
 
 export default FavoriteButton;

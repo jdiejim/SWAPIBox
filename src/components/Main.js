@@ -8,15 +8,20 @@ import './styles/Main.css';
 const Main = ({ selectedData, favorites, handleClick, toggleFavorites, displayFavorites, isLoading, inFavorites, activeAnim }) => {
   return (
     <section>
-      <Header displayFavorites={displayFavorites}
-              favorites={favorites} />
+      <Header
+        displayFavorites={displayFavorites}
+        favorites={favorites}
+        inFavorites={inFavorites}
+      />
       <ButtonWrapper handleClick={handleClick} />
-      <CardList selectedData={selectedData}
-                favorites={favorites}
-                isLoading={isLoading}
-                activeAnim={activeAnim}
-                toggleFavorites={toggleFavorites}
-                inFavorites={inFavorites} />
+      <CardList
+        selectedData={selectedData}
+        favorites={favorites}
+        isLoading={isLoading}
+        activeAnim={activeAnim}
+        toggleFavorites={toggleFavorites}
+        inFavorites={inFavorites}
+      />
     </section>
   )
 }
