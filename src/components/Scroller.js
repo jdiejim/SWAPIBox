@@ -4,11 +4,15 @@ import './styles/Scroller.css';
 
 const Scroller = ({ film }) => {
   return (
-    <section>
-      <h2 className="film-title">{film.title}</h2>
-      <h3 className="film-episode">Episode: {film.episode}</h3>
-      <h3 className="film-text">{film.text}</h3>
-      <h3 className="film-date">{film.date}</h3>
+    <section className="scroller">
+      <div className="crawl">
+          <div className="title-container">
+            <h2 className="film-title">{film.title}</h2>
+            <h3 className="film-episode">Episode: {film.episode}</h3>
+          </div>
+          <p className="film-text">{film.text}</p>
+          <p className="film-date">Release: {film.date}</p>
+      </div>
     </section>
   )
 }

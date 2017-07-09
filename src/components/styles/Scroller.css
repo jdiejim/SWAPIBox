@@ -1,0 +1,52 @@
+.scroller {
+  display: flex;
+  justify-content: center;
+  height: 250px;
+  perspective: 350px;
+  color: #feda4a;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 250%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  text-align: justify;
+  overflow: hidden;
+  background-image: url('../../utils/stars.svg');
+}
+
+.scroller:after {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  content: "";
+  background: linear-gradient(to bottom,
+     rgba(0,0,0, 1) 5%,
+     rgba(255,255,255, 0) 80%
+  );
+}
+
+.crawl {
+  width: 80%;
+  position: relative;
+  margin-top: 300px;
+  transform-origin: 50% 100%;
+  animation: crawl 120s linear;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes crawl {
+  0% {
+    top: 0;
+    transform: rotateX(20deg) translateZ(0);
+  }
+  100% {
+    top: -5000px;
+    transform: rotateX(25deg) translateZ(-2500px);
+  }
+}
