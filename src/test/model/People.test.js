@@ -153,6 +153,7 @@ describe('People.js', () => {
       planets: [],
       people: [],
       vehicles: [],
+      film: {},
       isLoading: true,
       errorStatus: ''
     }
@@ -162,6 +163,7 @@ describe('People.js', () => {
       planets: [],
       people: [person1, person2],
       vehicles: [],
+      film: {},
       isLoading: false,
       errorStatus: ''
     }

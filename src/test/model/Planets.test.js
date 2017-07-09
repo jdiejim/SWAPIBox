@@ -107,6 +107,7 @@ describe('Planets.js', () => {
       planets: [],
       people: [],
       vehicles: [],
+      film: {},
       isLoading: true,
       errorStatus: ''
     }
@@ -116,6 +117,7 @@ describe('Planets.js', () => {
       planets: [planet1, planet2],
       people: [],
       vehicles: [],
+      film: {},
       isLoading: false,
       errorStatus: ''
     }
