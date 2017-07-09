@@ -7,10 +7,9 @@ class Vehicles {
       .then(res => res.json())
       .then(({ results }) => {
         const selectedData = results.map(this.getVehicle);
-
         component.setState({ selectedData, inFavorites: false, vehicles: selectedData, isLoading: false });
       })
-      .catch(err => console.log(err));
+      .catch(err => component.setState({ errorStatus: 'Error fetching vehicles' }));
   }
 
   getVehicle(vehicle) {
