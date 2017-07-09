@@ -161,6 +161,7 @@ describe('App.js tests', () => {
     expect(wrapper.find('Card').length).toBe(1);
   });
 
+  // Joe
   it.skip('should add data to selectedData and people state when people button clicked', async () => {
   });
 
@@ -174,6 +175,7 @@ describe('App.js tests', () => {
     const expected = 'Error fetching people';
   });
 
+  // Juan
   it.skip('should add data to selectedData and planets state when planets button clicked', async () => {
   });
 
@@ -187,6 +189,7 @@ describe('App.js tests', () => {
     const expected = 'Error fetching planets';
   });
 
+  // Juan
   it.skip('should add data to selectedData and vehicles state when vehicles button clicked', async () => {
   });
 
@@ -200,12 +203,14 @@ describe('App.js tests', () => {
     const expected = 'Error fetching vehicles';
   });
 
+  // Joe
   it.skip('should change inFavorites state to false when handleClick is triggered', async () => {
   });
 
   it.skip('should change activeAnim state to false when handleClick is triggered', async () => {
   });
 
+  // Juan
   it.skip('should change selectedButton state to the title of the button clicked', async () => {
   });
 
@@ -221,6 +226,7 @@ describe('App.js tests', () => {
   it.skip('should not render loader when handleClick is triggered and promise resolved', async () => {
   });
 
+  // Joe
   it.skip('should add correct card to favorites if save button is triggered', () => {
   });
 
@@ -242,6 +248,7 @@ describe('App.js tests', () => {
   it.skip('should add favorites to localStorage when toggleFavorites is triggered', () => {
   });
 
+  // Juan
   it.skip('should change inFavorites state to true when displayFavorites is triggered', () => {
   });
 
