@@ -1,21 +1,24 @@
 import React from 'react';
 import FavoriteButton from './FavoriteButton';
-import { object, arrayOf, func } from 'prop-types';
+import { bool, object, arrayOf, func } from 'prop-types';
 import './styles/Header.css';
 
-const Header = ({ displayFavorites, favorites }) => {
+const Header = ({ displayFavorites, favorites, inFavorites }) => {
   return (
     <header className="header">
-      Header
-      <FavoriteButton displayFavorites={displayFavorites}
-                      favorites={favorites}/>
+      <FavoriteButton
+        displayFavorites={displayFavorites}
+        favorites={favorites}
+        inFavorites={inFavorites}
+      />
     </header>
   )
 }
 
 Header.propTypes = {
   displayFavorites: func,
-  favorites: arrayOf(object)
+  favorites: arrayOf(object),
+  inFavorites: bool
 }
 
 export default Header;
