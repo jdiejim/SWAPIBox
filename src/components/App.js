@@ -19,7 +19,6 @@ class App extends Component {
       activeAnim: false,
       errorStatus: ''
     }
-
     this.handleClick = this.handleClick.bind(this);
     this.toggleFavorites = this.toggleFavorites.bind(this);
     this.displayFavorites = this.displayFavorites.bind(this);
