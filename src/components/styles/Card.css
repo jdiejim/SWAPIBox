@@ -15,7 +15,7 @@
 
 .card {
   position: relative;
-  width: 40%;
+  width: 30%;
   height: 350px;
   padding: 20px;
   margin: 10px;
@@ -37,16 +37,38 @@
   opacity: 1;
 }
 
-.bg-stars {
+.card-animation .bg-emblem {
+  animation: none;
+  z-index: 0;
+}
+
+.bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  animation: stars 10s linear infinite;
   background-size: 20rem 20rem;
   background-position: center 0;
   opacity: 0;
+}
+
+.bg-stars {
+  animation: stars 10s linear infinite;
+  background-position: center 0;
+}
+
+.bg-emblem {
+  position: absolute;
+  top: 5%;
+  left: 25%;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
+  opacity: 0.2;
+  /*transform: rotate(-5deg);*/
 }
 
 .card-selected {
@@ -61,12 +83,14 @@
 
 .card-title {
   text-transform: uppercase;
+  z-index: 2;
 }
 
 .card-info-list {
   width: 50%;
   padding: 0;
   list-style: none;
+  z-index: 2;
 }
 
 .info {
@@ -89,8 +113,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0;
   height: 100%;
+  margin: 0;
 }
 
 .card-selected .card-favorite-button {
