@@ -26,32 +26,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const fromLocal = localStorage.getItem('favorites') ?
+    const favorites = localStorage.getItem('favorites') ?
       JSON.parse(localStorage.getItem('favorites')) : '';
-    if (fromLocal.length) {
-      this.setState({ favorites: fromLocal })
+    if (favorites.length) {
+      this.setState({ favorites })
     }
     fetchData('/', this);
-    // const promises = Promise.all([
-    //   fetch('http://swapi.co/api/people/').then(res => res.json()).then(data => data.results.map(e => e.name)),
-    //   fetch('http://swapi.co/api/people/?page=2').then(res => res.json()).then(data => data.results.map(e => e.name)),
-    //   fetch('http://swapi.co/api/people/?page=3').then(res => res.json()).then(data => data.results.map(e => e.name)),
-    //   fetch('http://swapi.co/api/people/?page=4').then(res => res.json()).then(data => data.results.map(e => e.name)),
-    //   fetch('http://swapi.co/api/people/?page=5').then(res => res.json()).then(data => data.results.map(e => e.name)),
-    //   fetch('http://swapi.co/api/people/?page=6').then(res => res.json()).then(data => data.results.map(e => e.name)),
-    //   fetch('http://swapi.co/api/people/?page=7').then(res => res.json()).then(data => data.results.map(e => e.name)),
-    //   fetch('http://swapi.co/api/people/?page=8').then(res => res.json()).then(data => data.results.map(e => e.name)),
-    //   fetch('http://swapi.co/api/people/?page=9').then(res => res.json()).then(data => data.results.map(e => e.name)),
-    // ])
-
-    // promises.then(data => {
-    //   const red = data.reduce((arr, e) => {
-    //     arr.push(...e)
-    //     return arr;
-    //   }, []);
-    //
-    //   console.log(red);
-    // })
   }
 
   setLocalStorage() {
