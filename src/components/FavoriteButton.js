@@ -1,6 +1,5 @@
 import React from 'react';
 import { string, func, arrayOf, shape} from 'prop-types';
-
 import './styles/FavoriteButton.css';
 
 const FavoriteButton = ({ displayFavorites, favorites }) => {

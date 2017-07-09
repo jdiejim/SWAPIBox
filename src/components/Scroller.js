@@ -11,8 +11,9 @@ const Scroller = ({ film }) => {
             <h3 className="film-episode">Episode: {film.episode}</h3>
           </div>
           <p className="film-text">{film.text}</p>
-          <p className="film-date">Release: {film.date}</p>
+          <p className="film-date">Release Date: {film.date}</p>
       </div>
+      <div className="star-wars">Star Wars</div>
     </section>
   )
 }
