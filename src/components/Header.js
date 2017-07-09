@@ -1,11 +1,16 @@
 import React from 'react';
 import FavoriteButton from './FavoriteButton';
-import { bool, object, arrayOf, func } from 'prop-types';
+import ButtonWrapper from './ButtonWrapper';
+import { bool, string, object, arrayOf, func } from 'prop-types';
 import './styles/Header.css';
 
-const Header = ({ displayFavorites, favorites, inFavorites }) => {
+const Header = ({ displayFavorites, favorites, inFavorites, handleClick, selectedButton }) => {
   return (
     <header className="header">
+      <ButtonWrapper
+        handleClick={handleClick}
+        selectedButton={selectedButton}
+      />
       <FavoriteButton
         displayFavorites={displayFavorites}
         favorites={favorites}
@@ -18,7 +23,9 @@ const Header = ({ displayFavorites, favorites, inFavorites }) => {
 Header.propTypes = {
   displayFavorites: func,
   favorites: arrayOf(object),
-  inFavorites: bool
+  inFavorites: bool,
+  handleClick: func,
+  selectedButton: string
 }
 
 export default Header;

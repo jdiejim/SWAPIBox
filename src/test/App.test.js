@@ -206,6 +206,9 @@ describe('App.js tests', () => {
   it.skip('should change activeAnim state to false when handleClick is triggered', async () => {
   });
 
+  it.skip('should change selectedButton state to the title of the button clicked', async () => {
+  });
+
   it.skip('should change isLoading state to true when handleClick is triggered and promise not resolved', async () => {
   });
 
