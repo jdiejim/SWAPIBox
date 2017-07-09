@@ -8,6 +8,9 @@ import republic from './republic.svg';
 import sith from './sith.svg';
 import newRepublic from './newRepublic.svg';
 import first from './first.svg';
+import blueprint from './blueprint.jpg';
+import blueprint2 from './blueprint2.jpg';
+import blueprint3 from './blueprint3.jpg';
 
 const emblems = {
   rebel,
@@ -19,7 +22,10 @@ const emblems = {
   republic,
   sith,
   newRepublic,
-  first
+  first,
+  blueprint,
+  blueprint2,
+  blueprint3
 }
 
 export default emblems;

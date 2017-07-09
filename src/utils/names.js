@@ -261,94 +261,94 @@ const names = {
      emblem: 'republic'
    },
   'Sand Crawler': {
-    emblem: 'normal'
+    emblem: 'blueprint3'
     },
   'T-16 skyhopper': {
-    emblem: 'normal'
+    emblem: 'blueprint3'
     },
   'X-34 landspeeder': {
-    emblem: 'normal'
+    emblem: 'blueprint3'
     },
   'TIE/LN starfighter': {
-    emblem: 'empire'
+    emblem: 'blueprint'
     },
   'Snowspeeder': {
-    emblem: 'rebel'
+    emblem: 'blueprint2'
     },
   'TIE bomber': {
-    emblem: 'empire'
+    emblem: 'blueprint'
     },
   'AT-AT': {
-    emblem: 'empire'
+    emblem: 'blueprint'
     },
   'AT-ST': {
-    emblem: 'empire'
+    emblem: 'blueprint'
     },
   'Storm IV Twin-Pod cloud car': {
-    emblem: 'trade'
+    emblem: 'blueprint'
     },
   'Sail barge': {
-    emblem: 'bounty'
+    emblem: 'blueprint'
     },
   'Bantha-II cargo skiff': {
-    emblem: 'bounty'
+    emblem: 'blueprint'
     },
   'TIE/IN interceptor': {
-    emblem: 'empire'
+    emblem: 'blueprint'
     },
   'Imperial Speeder Bike': {
-    emblem: 'empire'
+    emblem: 'blueprint'
     },
   'Vulture Droid': {
-    emblem: 'trade'
+    emblem: 'blueprint'
     },
   'Multi-Troop Transport': {
-    emblem: 'empire'
+    emblem: 'blueprint'
     },
   'Armored Assault Tank': {
-    emblem: 'republic'
+    emblem: 'blueprint2'
     },
   'Single Trooper Aerial Platform': {
-    emblem: 'empire'
+    emblem: 'blueprint'
     },
   'C-9979 landing craft': {
-    emblem: 'trade'
+    emblem: 'blueprint'
     },
   'Tribubble bongo': {
-    emblem: 'normal'
+    emblem: 'blueprint3'
     },
   'Sith speeder': {
-    emblem: 'sith'
+    emblem: 'blueprint'
     },
   'Zephyr-G swoop bike': {
-    emblem: 'rebel'
+    emblem: 'blueprint2'
     },
   'Koro-2 Exodrive airspeeder': {
-    emblem: 'bounty'
+    emblem: 'blueprint'
     },
   'XJ-6 airspeeder': {
-    emblem: 'republic'
+    emblem: 'blueprint2'
     },
   'LAAT/i': {
-    emblem: 'republic'
+    emblem: 'blueprint2'
     },
   'LAAT/c': {
-    emblem: 'republic'
+    emblem: 'blueprint2'
     },
   'Tsmeu-6 personal wheel bike': {
-    emblem: 'normal'
+    emblem: 'blueprint3'
     },
   'Emergency Firespeeder': {
-    emblem: 'republic'
+    emblem: 'blueprint2'
     },
   'Droid tri-fighter' : {
-    emblem: 'normal'
+    emblem: 'blueprint3'
   },
   'Oevvaor jet catamaran' : {
-    emblem: 'republic'
+    emblem: 'blueprint2'
   },
   'Raddaugh Gnasp fluttercraft' : {
-    emblem: 'normal'
+    emblem: 'blueprint3'
   },
   'Clone turbo tank': {
     emblem: 'newRepublic'
@@ -357,25 +357,25 @@ const names = {
     emblem: 'newRepublic'
     },
   'Droid gunship': {
-    emblem: 'republic'
+    emblem: 'blueprint2'
     },
   'AT-RT': {
-    emblem: 'empire'
+    emblem: 'blueprint'
     },
   'AT-TE': {
-    emblem: 'empire'
+    emblem: 'blueprint'
     },
   'SPHA': {
-    emblem: 'empire'
+    emblem: 'blueprint'
     },
   'Flitknot speeder' : {
-    emblem: 'normal'
+    emblem: 'blueprint3'
   },
   'Neimoidian shuttle' : {
-    emblem: 'normal'
+    emblem: 'blueprint3'
   },
   'Geonosian starfighter' : {
-    emblem: 'normal'
+    emblem: 'blueprint3'
   },
 };
 

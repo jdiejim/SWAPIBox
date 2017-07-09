@@ -33,12 +33,19 @@ const Card = ({ info, toggleFavorites, favorites, activeAnim, inFavorites }) => 
     bgClass = 'bg bg-stars'
   } else {
     const emblem = emblems[names[info.name].emblem];
-    bgClass = 'bg bg-emblem'
-    bgCard = {
-      backgroundImage: `url(${emblem})`,
-      left: names[info.name].emblem === 'normal' ? '0%' : '25%',
-      opacity: names[info.name].emblem === 'normal' ? '0.3' : '0.3',
-      backgroundSize: names[info.name].emblem === 'normal' ? '95%' : '80%',
+    if (names[info.name].emblem.includes('blueprint')) {
+      bgClass = 'bg bg-vehicle';
+      bgCard = {
+        backgroundImage: `url(${emblem})`,
+      }
+    } else {
+      bgClass = 'bg bg-emblem';
+      bgCard = {
+        backgroundImage: `url(${emblem})`,
+        left: names[info.name].emblem === 'normal' ? '0%' : '25%',
+        opacity: names[info.name].emblem === 'normal' ? '0.3' : '0.3',
+        backgroundSize: names[info.name].emblem === 'normal' ? '95%' : '80%',
+      }
     }
   }
 
