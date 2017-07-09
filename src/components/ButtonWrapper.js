@@ -1,24 +1,34 @@
 import React from 'react';
 import Button from './Button';
-import { func } from 'prop-types';
+import { string, func } from 'prop-types';
 
 import './styles/ButtonWrapper.css';
 
-const ButtonWrapper = ({ handleClick }) => {
+const ButtonWrapper = ({ handleClick, selectedButton }) => {
   return (
-    <section>
-      <Button title='people'
-              handleClick={ handleClick } />
-      <Button title='planets'
-              handleClick={ handleClick } />
-      <Button title='vehicles'
-              handleClick={ handleClick } />
+    <section className="button-wrapper">
+      <Button
+        title='people'
+        handleClick={ handleClick }
+        selectedButton={selectedButton}
+      />
+      <Button
+        title='planets'
+        handleClick={ handleClick }
+        selectedButton={selectedButton}
+      />
+      <Button
+        title='vehicles'
+        handleClick={ handleClick }
+        selectedButton={selectedButton}
+      />
     </section>
-  )
+  );
 }
 
 ButtonWrapper.propTypes = {
-  handleClick: func
+  handleClick: func,
+  selectedButton: string
 }
 
 export default ButtonWrapper;

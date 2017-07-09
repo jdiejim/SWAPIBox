@@ -17,7 +17,8 @@ class App extends Component {
       film: {},
       isLoading: false,
       activeAnim: false,
-      errorStatus: ''
+      errorStatus: '',
+      selectedButton: ''
     }
     this.handleClick = this.handleClick.bind(this);
     this.toggleFavorites = this.toggleFavorites.bind(this);
@@ -54,16 +55,16 @@ class App extends Component {
 
   handleClick(title) {
     if (this.state[title].length > 0) {
-      this.setState({ selectedData: this.state[title], inFavorites: false, activeAnim: false });
+      this.setState({ selectedData: this.state[title], inFavorites: false, activeAnim: false, selectedButton: title });
     } else {
-      this.setState({ isLoading: true, activeAnim: false })
+      this.setState({ isLoading: true, activeAnim: false, selectedButton: title })
       fetchData(title, this);
     }
   }
 
   displayFavorites() {
     const selectedData = this.state.favorites;
-    this.setState({ selectedData, inFavorites: true });
+    this.setState({ selectedData, inFavorites: true, selectedButton: '' });
   }
 
   stickyNav() {
@@ -84,19 +85,22 @@ class App extends Component {
   }
 
   render() {
-    const { selectedData, favorites, film, inFavorites, isLoading, activeAnim } = this.state;
+    const { selectedData, favorites, film, inFavorites, isLoading, activeAnim, selectedButton } = this.state;
 
     return (
       <div className="App">
         <Scroller film={film}/>
-        <Main selectedData={selectedData}
-              favorites={favorites}
-              isLoading={isLoading}
-              activeAnim={activeAnim}
-              handleClick={this.handleClick}
-              toggleFavorites={this.toggleFavorites}
-              displayFavorites={this.displayFavorites}
-              inFavorites={inFavorites} />
+        <Main
+          selectedData={selectedData}
+          favorites={favorites}
+          isLoading={isLoading}
+          activeAnim={activeAnim}
+          handleClick={this.handleClick}
+          toggleFavorites={this.toggleFavorites}
+          displayFavorites={this.displayFavorites}
+          inFavorites={inFavorites}
+          selectedButton={selectedButton}
+        />
       </div>
     );
   }

@@ -1,0 +1,31 @@
+.fetch-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  padding: 10px 20px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 5% 50%;
+  background-size: 25%;
+  border: 3px solid #FFF;
+  border-radius: 20px;
+  color: #FFF;
+  cursor: pointer;
+  font-family: Starjedi, sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.fetch-button:hover {
+  opacity: 1;
+}
+
+.fetch-button:focus {
+  outline: none;
+}
+
+.selected-button {
+  opacity: 1;
+}

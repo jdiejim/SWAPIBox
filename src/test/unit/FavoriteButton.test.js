@@ -37,7 +37,6 @@ describe('FavoriteButton.js', () => {
     const favorites = [ { name: 'favorite1' }, { name: 'favorite2' } ];
     const wrapper = shallow(<FavoriteButton favorites={favorites} inFavorites={false} />);
     const wrapperInFavorites = shallow(<FavoriteButton favorites={favorites} inFavorites={true} />);
-    const length = wrapper.find('span').props().children[1];
     const preExpected = 'favorite-button';
     const postExpected = 'favorite-button in-favorites';
 

@@ -1,19 +1,19 @@
 import React from 'react';
 import Header from './Header';
-import ButtonWrapper from './ButtonWrapper';
 import CardList from './CardList';
 import { arrayOf, func, string, bool, shape } from 'prop-types';
 import './styles/Main.css';
 
-const Main = ({ selectedData, favorites, handleClick, toggleFavorites, displayFavorites, isLoading, inFavorites, activeAnim }) => {
+const Main = ({ selectedData, favorites, handleClick, toggleFavorites, displayFavorites, isLoading, inFavorites, activeAnim, selectedButton }) => {
   return (
     <section>
       <Header
         displayFavorites={displayFavorites}
         favorites={favorites}
         inFavorites={inFavorites}
+        handleClick={handleClick}
+        selectedButton={selectedButton}
       />
-      <ButtonWrapper handleClick={handleClick} />
       <CardList
         selectedData={selectedData}
         favorites={favorites}
@@ -48,7 +48,8 @@ Main.propTypes = {
   displayFavorites: func,
   isLoading: bool,
   inFavorites: bool,
-  activeAnim: bool
+  activeAnim: bool,
+  selectedButton: string
 }
 
 export default Main;
