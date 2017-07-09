@@ -22,17 +22,39 @@ const Card = ({ info, toggleFavorites, favorites, activeAnim, inFavorites }) => 
                           </div>
                         ));
 
-  const planet = Object.keys(info).includes('terrain') ? <PlanetDynamic terrain={info.terrain.split(',')[0]} /> : <span />;
+  let planet = <span />
+  let bgClass = 'bg';
+  let bgCard = {
+    backgroundImage: `url(${stars})`
+  }
+
+  if (Object.keys(info).includes('terrain')) {
+    planet = <PlanetDynamic terrain={info.terrain.split(',')[0]} />;
+    bgClass = 'bg bg-stars'
+  } else {
+    const emblem = emblems[names[info.name].emblem];
+    if (names[info.name].emblem.includes('blueprint')) {
+      bgClass = 'bg bg-vehicle';
+      bgCard = {
+        backgroundImage: `url(${emblem})`,
+      }
+    } else {
+      bgClass = 'bg bg-emblem';
+      bgCard = {
+        backgroundImage: `url(${emblem})`,
+        left: names[info.name].emblem === 'normal' ? '0%' : '25%',
+        opacity: names[info.name].emblem === 'normal' ? '0.3' : '0.3',
+        backgroundSize: names[info.name].emblem === 'normal' ? '95%' : '80%',
+      }
+    }
+  }
+
   const cardClass = favorites.find(e => e.name === info.name) && !inFavorites ? 'card card-selected ' : 'card ';
   const cardAnimation = activeAnim ? '' : 'card-animation';
-  const emblem = emblems[names[info.name].emblem];
-  const bgCard = {
-    backgroundImage: `url(${emblem})`
-  }
 
   return (
     <article className={cardClass + cardAnimation}>
-      <div className="bg-stars" style={bgCard}></div>
+      <div className={bgClass} style={bgCard}></div>
       <div className="card-title-wrapper">
         <h2 className="card-title">{info.name}</h2>
         <button

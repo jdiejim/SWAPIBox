@@ -1,6 +1,7 @@
 import React from 'react';
 import { bool, object, arrayOf, func } from 'prop-types';
 import { getKey } from '../utils/helper_functions';
+import darth from '../utils/darth-vader.gif';
 import Card from './Card';
 import Loader from './Loader';
 import './styles/CardList.css';
@@ -19,7 +20,8 @@ const CardList = ({ selectedData, favorites, toggleFavorites, inFavorites, isLoa
   );
   const favoriteMsg = (
     <div className="no-favorites">
-      Please select some favorites to add here!!
+      <h1 className="fav-msg">i find your lack of favorites disturbing!</h1>
+      <img className="fav-img" src={darth} />
     </div>
   );
   const views = !favorites.length && inFavorites ? favoriteMsg : cards;
