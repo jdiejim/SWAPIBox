@@ -9,7 +9,7 @@ describe('Button.js', () => {
     expect(wrapper.find('button').length).toBe(1)
   });
 
-  it('Should call a function when clicked', () => {
+  it('should call a function when clicked', () => {
     const mockFn = jest.fn();
     const wrapper = shallow(<Button handleClick={mockFn} />);
     const button = wrapper.find('button');
