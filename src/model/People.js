@@ -9,8 +9,9 @@ class People {
           inFavorites: false,
           people: selectedData,
           isLoading: false,
+          errorStatus: ''
         }))
-        .catch(err => console.log(err));
+        .catch(err => component.setState({ errorStatus: 'Error fetching people' }));
   }
 
   getPeople() {

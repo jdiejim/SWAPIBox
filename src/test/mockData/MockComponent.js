@@ -4,13 +4,17 @@ class MockComponent {
       selectedData: [],
       inFavorites: true,
       planets: [],
+      people: [],
+      vehicles: [],
       isLoading: true,
       errorStatus: ''
     }
   }
 
   setState(obj) {
-    this.state = obj;
+    Object.keys(obj).forEach(key => {
+      this.state[key] = obj[key];
+    });
   }
 }
 
