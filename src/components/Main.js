@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Header';
 import ButtonWrapper from './ButtonWrapper';
 import CardList from './CardList';
-import { arrayOf, func, string, shape } from 'prop-types';
+import { arrayOf, func, string, bool, shape } from 'prop-types';
 import './styles/Main.css';
 
 const Main = ({ selectedData, favorites, handleClick, toggleFavorites, displayFavorites, isLoading, inFavorites, activeAnim }) => {
@@ -44,7 +44,11 @@ Main.propTypes = {
   selectedData: arrayOf(allData),
   favorites: arrayOf(allData),
   handleClick: func,
-  toggleFavorites: func
+  toggleFavorites: func,
+  displayFavorites: func,
+  isLoading: bool,
+  inFavorites: bool,
+  activeAnim: bool
 }
 
 export default Main;
