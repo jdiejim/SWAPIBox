@@ -4,20 +4,14 @@ import FavoriteButton from '../../components/FavoriteButton';
 
 describe('FavoriteButton.js', () => {
   it('should render the correct component when it mounts', () => {
-    const wrapper = shallow(<FavoriteButton />);
+    const wrapper = shallow(<FavoriteButton favorites={[]} />);
 
     expect(wrapper.find('button').length).toEqual(1);
   });
 
-  it('should contain a h2', () => {
-    const wrapper = shallow(<FavoriteButton />)
-
-    expect(wrapper.find('h2').length).toEqual(1)
-  })
-
-  it('should call a function when clicked', () => {
+  it('should call a function when is clicked', () => {
     const mockFn = jest.fn();
-    const wrapper = shallow(<FavoriteButton displayFavorites={mockFn} />);
+    const wrapper = shallow(<FavoriteButton displayFavorites={mockFn} favorites={[]}  />);
     const button = wrapper.find('button');
 
     expect(mockFn).toHaveBeenCalledTimes(0);
@@ -29,7 +23,13 @@ describe('FavoriteButton.js', () => {
     button.simulate('click');
 
     expect(mockFn).toHaveBeenCalledTimes(2);
+  });
 
-    console.log(wrapper.debug());
-  })
+  it('should render the correct length of favorites', () => {
+    const favorites = [ { name: 'favorite1' }, { name: 'favorite2' } ];
+    const wrapper = shallow(<FavoriteButton favorites={favorites} />);
+    const length = wrapper.find('span').props().children[1];
+
+    expect(length).toBe(2)
+  });
 });

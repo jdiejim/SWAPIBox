@@ -30,7 +30,8 @@ class App extends Component {
     if (favorites.length) {
       this.setState({ favorites })
     }
-    fetchData('/', this);
+    // fetchData('/', this);
+    window.addEventListener('scroll', this.stickyNav);
   }
 
   setLocalStorage() {
@@ -63,6 +64,23 @@ class App extends Component {
   displayFavorites() {
     const selectedData = this.state.favorites;
     this.setState({ selectedData, inFavorites: true });
+  }
+
+  stickyNav() {
+    const app = document.getElementById('root');
+    const nav = document.querySelector('.header');
+
+    if (window.scrollY >= 250) {
+      app.style.paddingTop = `${nav.offsetHeight}px`;
+      app.classList.add('fixed-nav');
+    } else {
+      app.style.paddingTop = '0px';
+      app.classList.remove('fixed-nav');
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.stickyNav);
   }
 
   render() {

@@ -5,7 +5,7 @@
   height: 100vh;
   margin: 0 auto;
   padding: 25px 0;
-  overflow: scroll;
+  transition: margin 0.5s;
 }
 
 .no-favorites {
@@ -28,7 +28,7 @@
 
 .fav-img {
   position: absolute;
-  top: -25%;
+  top: 0;
   left: 0;
   width: 100%;
   opacity: 0.4;
