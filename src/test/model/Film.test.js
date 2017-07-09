@@ -10,7 +10,7 @@ describe('Film.js', () => {
   const FILM5_URL = 'http://swapi.co/api/films/5';
   const FILM6_URL = 'http://swapi.co/api/films/6';
   const FILM7_URL = 'http://swapi.co/api/films/7';
-  const resolveAfter2Seconds = () => new Promise(resolve => setTimeout(() => resolve(),2000));
+  const resolveAfter2Seconds = () => new Promise(resolve => setTimeout(() => resolve(), 2000));
   const body = {
     title: 'The Force Awakens',
     opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',

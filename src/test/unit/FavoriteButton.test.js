@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import FavoriteButton from '../../components/FavoriteButton';
 
 describe('FavoriteButton.js', () => {
@@ -9,13 +9,13 @@ describe('FavoriteButton.js', () => {
     expect(wrapper.find('button').length).toEqual(1);
   });
 
-  it('Should contain a h2', () => {
+  it('should contain a h2', () => {
     const wrapper = shallow(<FavoriteButton />)
 
     expect(wrapper.find('h2').length).toEqual(1)
   })
 
-  it('Should call a function when clicked', () => {
+  it('should call a function when clicked', () => {
     const mockFn = jest.fn();
     const wrapper = shallow(<FavoriteButton displayFavorites={mockFn} />);
     const button = wrapper.find('button');
