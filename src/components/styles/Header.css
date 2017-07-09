@@ -1,0 +1,20 @@
+.header {
+  /*background: red;*/
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 50px;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 3;
+}
+
+.fixed-nav .header {
+  position: fixed;
+  top: 0;
+}
+
+.fixed-nav .card-list {
+  margin-top: 20px;
+}
