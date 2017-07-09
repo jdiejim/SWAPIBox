@@ -26,6 +26,11 @@ class App extends Component {
   }
 
   componentDidMount() {
+    const fromLocal = localStorage.getItem('favorites') ?
+      JSON.parse(localStorage.getItem('favorites')) : '';
+    if (fromLocal.length) {
+      this.setState({ favorites: fromLocal })
+    }
     fetchData('/', this);
     // const promises = Promise.all([
     //   fetch('http://swapi.co/api/people/').then(res => res.json()).then(data => data.results.map(e => e.name)),
@@ -49,6 +54,10 @@ class App extends Component {
     // })
   }
 
+  setLocalStorage() {
+    localStorage.setItem('favorites', JSON.stringify(this.state.favorites));
+  }
+
   toggleFavorites(info) {
     let favorites = this.state.favorites;
     if (!favorites.find(e => e.name === info.name)) {
@@ -60,6 +69,7 @@ class App extends Component {
       this.setState({ selectedData: favorites, favorites, activeAnim: true });
     }
     this.setState({ favorites, activeAnim: true });
+    this.setLocalStorage();
   }
 
   handleClick(title) {
