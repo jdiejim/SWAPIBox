@@ -49,7 +49,7 @@ const Card = ({ info, toggleFavorites, favorites, activeAnim, inFavorites }) => 
     }
   }
 
-  const cardClass = favorites.find(e => e.name === info.name) && !inFavorites ? 'card card-selected' : 'card ';
+  const cardClass = favorites.find(e => e.name === info.name) && !inFavorites ? 'card card-selected ' : 'card ';
   const cardAnimation = activeAnim ? '' : 'card-animation';
 
   return (
