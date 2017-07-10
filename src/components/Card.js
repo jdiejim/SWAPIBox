@@ -16,6 +16,7 @@ const Card = ({ info, toggleFavorites, favorites, activeAnim, inFavorites }) => 
           .filter(e => info[e].length !== 0)
           .map(key => {
             const value = formatData(key, info[key]);
+
             return (
               <div className="info" key={getKey()}>
                 <h3 className="info-label">{key}</h3>
@@ -54,14 +55,14 @@ const Card = ({ info, toggleFavorites, favorites, activeAnim, inFavorites }) => 
 
   return (
     <article className={cardClass + cardAnimation}>
+      <button
+        className="card-favorite-button"
+        onClick={ () => toggleFavorites(info)}>
+        Save
+      </button>
       <div className={bgClass} style={bgCard}></div>
       <div className="card-title-wrapper">
         <h2 className="card-title">{info.name}</h2>
-        <button
-          className="card-favorite-button"
-          onClick={ () => toggleFavorites(info)}>
-          Save
-        </button>
       </div>
       <section className="info-wrapper">
         <section className="card-info-list">
@@ -77,7 +78,8 @@ Card.propTypes = {
   info: object,
   toggleFavorites: func,
   favorites: arrayOf(object),
-  activeAnim: bool
+  activeAnim: bool,
+  inFavorites: bool
 }
 
 export default Card;

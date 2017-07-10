@@ -1,0 +1,59 @@
+@media (max-width: 750px) {
+  .star-wars {
+      margin: 50px auto 0;
+      font-size: 80px;
+  }
+
+  .scroller {
+    font-size: 200%;
+    font-weight: 500;
+    letter-spacing: 2px;
+    line-height: 135%;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .button-wrapper {
+    order: 2;
+    width: 260px;
+    margin: 20px 0 0;
+  }
+
+  .card {
+    width: 40%;
+  }
+}
+
+@media (max-width: 600px) {
+  .star-wars {
+      margin-top: 50px;
+      font-size: 75px;
+  }
+
+  .scroller {
+    font-size: 150%;
+    font-weight: 500;
+    letter-spacing: 2px;
+    line-height: 135%;
+  }
+
+  .card {
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 390px) {
+  .star-wars {
+      margin-top: 50px;
+      font-size: 75px;
+  }
+
+  .scroller {
+    font-size: 150%;
+    font-weight: 500;
+    letter-spacing: 2px;
+    line-height: 135%;
+  }
+}

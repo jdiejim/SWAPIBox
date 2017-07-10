@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import Card from '../../components/Card';
 
 describe('Card.js', () => {
-  it.skip('should render the correct component when it mounts', () => {
+  it('should render the correct component when it mounts', () => {
     const person = { name: 'Darth Vader' };
     const favorites = [
       { name: 'Luke Skywalker' },
@@ -78,7 +78,7 @@ describe('Card.js', () => {
     expect(wrapper.find('.card-selected').length).toBe(1);
   })
 
-  it('should render the correct class if favorites not is found', () => {
+  it('should render the correct class if favorites not found', () => {
     const person = { name: 'Darth Vader', status: 'single' };
     const favorites = [
       { name: 'Luke Skywalker' },

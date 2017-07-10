@@ -94,30 +94,3 @@
     opacity: 1;
   }
 }
-
-@media (max-width: 700px) {
-  .star-wars {
-      margin-top: 25px;
-  }
-
-  .scroller {
-    font-size: 200%;
-    font-weight: 500;
-    letter-spacing: 2px;
-    line-height: 135%;
-  }
-}
-
-@media (max-width: 390px) {
-  .star-wars {
-      margin-top: 50px;
-      font-size: 75px;
-  }
-
-  .scroller {
-    font-size: 150%;
-    font-weight: 500;
-    letter-spacing: 2px;
-    line-height: 135%;
-  }
-}
