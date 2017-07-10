@@ -24,7 +24,7 @@ describe('Scroller.js', () => {
     const title = wrapper.find('.film-title').props().children;
     const episode = wrapper.find('.film-episode').props().children[1];
     const text = wrapper.find('.film-text').props().children;
-    const date = wrapper.find('.film-date').props().children;
+    const date = wrapper.find('.film-date').props().children[1];
 
     expect(title).toBe('Empire Strikes Back');
     expect(episode).toBe(5);

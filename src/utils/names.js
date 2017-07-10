@@ -273,7 +273,7 @@ const names = {
     emblem: 'blueprint'
     },
   'Snowspeeder': {
-    emblem: 'blueprint2'
+    emblem: 'blueprint3'
     },
   'TIE bomber': {
     emblem: 'blueprint'
@@ -306,7 +306,7 @@ const names = {
     emblem: 'blueprint'
     },
   'Armored Assault Tank': {
-    emblem: 'blueprint2'
+    emblem: 'blueprint3'
     },
   'Single Trooper Aerial Platform': {
     emblem: 'blueprint'
@@ -321,31 +321,31 @@ const names = {
     emblem: 'blueprint'
     },
   'Zephyr-G swoop bike': {
-    emblem: 'blueprint2'
+    emblem: 'blueprint3'
     },
   'Koro-2 Exodrive airspeeder': {
     emblem: 'blueprint'
     },
   'XJ-6 airspeeder': {
-    emblem: 'blueprint2'
+    emblem: 'blueprint3'
     },
   'LAAT/i': {
-    emblem: 'blueprint2'
+    emblem: 'blueprint3'
     },
   'LAAT/c': {
-    emblem: 'blueprint2'
+    emblem: 'blueprint3'
     },
   'Tsmeu-6 personal wheel bike': {
     emblem: 'blueprint3'
     },
   'Emergency Firespeeder': {
-    emblem: 'blueprint2'
+    emblem: 'blueprint3'
     },
   'Droid tri-fighter' : {
     emblem: 'blueprint3'
   },
   'Oevvaor jet catamaran' : {
-    emblem: 'blueprint2'
+    emblem: 'blueprint3'
   },
   'Raddaugh Gnasp fluttercraft' : {
     emblem: 'blueprint3'
@@ -357,7 +357,7 @@ const names = {
     emblem: 'newRepublic'
     },
   'Droid gunship': {
-    emblem: 'blueprint2'
+    emblem: 'blueprint3'
     },
   'AT-RT': {
     emblem: 'blueprint'

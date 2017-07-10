@@ -10,7 +10,7 @@ describe('Main.js', () => {
     expect(wrapper.find('CardList').length).toBe(1);
   });
 
-  it('Should pass the correct props to Header', () => {
+  it('should pass the correct props to Header', () => {
     const displayFavorites = () => {};
     const inFavorites = true;
     const favorites = [
@@ -33,7 +33,7 @@ describe('Main.js', () => {
     expect(wrapper.find('Header').props().inFavorites).toBe(true);
   })
 
-  it('Should pass the correct props to CardList', () => {
+  it('should pass the correct props to CardList', () => {
     const inFavorites = true;
     const isLoading = false;
     const activeAnim = true;

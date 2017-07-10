@@ -19,16 +19,23 @@
 }
 
 .fav-msg {
-  color: #FFF;
+  width: 100%;
+  height: 100%;
+  padding: 100px 0;
+  color: #FEDA4A;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
   font-family: Starjedi, sans-serif;
   font-size: 30px;
   letter-spacing: 4px;
+  text-align: center;
   z-index: 2;
 }
 
 .fav-img {
   position: absolute;
-  top: 0;
+  top: -35%;
   left: 0;
   width: 100%;
   opacity: 0.4;

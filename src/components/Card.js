@@ -1,5 +1,5 @@
 import React from 'react';
-import { getKey } from '../utils/helper_functions';
+import { getKey, formatData } from '../utils/helper_functions';
 import stars from '../utils/stars.svg';
 import emblems from '../utils/emblems';
 import names from '../utils/names';
@@ -12,25 +12,26 @@ const Card = ({ info, toggleFavorites, favorites, activeAnim, inFavorites }) => 
     return <div>card</div>
   }
 
-  const infoList = Object.keys(info)
-                         .filter(e => e !== 'name')
-                         .filter(e => info[e].length !== 0)
-                         .map(key => (
-                           <div className="info" key={getKey()}>
-                            <h3 className="info-label">{key}</h3>
-                            <p className="info-value">{info[key]}</p>
-                          </div>
-                        ));
+  const infoList = Object.keys(info).filter(e => e !== 'name')
+          .filter(e => info[e].length !== 0)
+          .map(key => {
+            const value = formatData(key, info[key]);
+
+            return (
+              <div className="info" key={getKey()}>
+                <h3 className="info-label">{key}</h3>
+                <div className="info-value">{value}</div>
+              </div>
+            )
+          });
 
   let planet = <span />
   let bgClass = 'bg';
-  let bgCard = {
-    backgroundImage: `url(${stars})`
-  }
+  let bgCard = { backgroundImage: `url(${stars})` };
 
   if (Object.keys(info).includes('terrain')) {
     planet = <PlanetDynamic terrain={info.terrain.split(',')[0]} />;
-    bgClass = 'bg bg-stars'
+    bgClass = 'bg bg-stars';
   } else {
     const emblem = emblems[names[info.name].emblem];
     if (names[info.name].emblem.includes('blueprint')) {
@@ -54,14 +55,14 @@ const Card = ({ info, toggleFavorites, favorites, activeAnim, inFavorites }) => 
 
   return (
     <article className={cardClass + cardAnimation}>
+      <button
+        className="card-favorite-button"
+        onClick={ () => toggleFavorites(info)}>
+        Save
+      </button>
       <div className={bgClass} style={bgCard}></div>
       <div className="card-title-wrapper">
         <h2 className="card-title">{info.name}</h2>
-        <button
-          className="card-favorite-button"
-          onClick={ () => toggleFavorites(info)}>
-          Save
-        </button>
       </div>
       <section className="info-wrapper">
         <section className="card-info-list">
@@ -77,7 +78,8 @@ Card.propTypes = {
   info: object,
   toggleFavorites: func,
   favorites: arrayOf(object),
-  activeAnim: bool
+  activeAnim: bool,
+  inFavorites: bool
 }
 
 export default Card;
