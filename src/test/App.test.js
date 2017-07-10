@@ -46,7 +46,8 @@ describe('App.js tests', () => {
       film: {},
       isLoading: false,
       activeAnim: false,
-      errorStatus: ''
+      errorStatus: '',
+      selectedButton: ''
     }
 
     expect(appState).toEqual(expected);
@@ -671,16 +672,168 @@ describe('App.js tests', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should change isLoading state to true when handleClick is triggered and promise not resolved', async () => {
+  it.skip('should change isLoading state to true when handleClick is triggered and promise not resolved', () => {
+    const body = {
+      title: 'The Force Awakens',
+      opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
+      release_date: '2015-12-11',
+      episode_id: '7'
+    }
+
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM2_URL, { status: 200, body });
+    fetchMock.get(FILM3_URL, { status: 200, body });
+    fetchMock.get(FILM4_URL, { status: 200, body });
+    fetchMock.get(FILM5_URL, { status: 200, body });
+    fetchMock.get(FILM6_URL, { status: 200, body });
+    fetchMock.get(FILM7_URL, { status: 200, body });
+
+    const info1 = {
+      name: 'Sand Crawler',
+      model: 'Digger Crawler',
+      vehicle_class: 'wheeled',
+      passengers: '30',
+    }
+
+    fetchMock.get(VEHICLES_URL, {
+      status: 200,
+      body: { results: [info1] }
+    });
+
+    const wrapper = mount(<App />);
+    const vehiclesBtn = wrapper.find('#fetch-vehicles-btn');
+
+    expect(wrapper.state('isLoading')).toBe(false);
+
+    vehiclesBtn.simulate('click');
+
+    expect(wrapper.state('isLoading')).toBe(true);
   });
 
-  it.skip('should render loader when handleClick is triggered and promise not resolved', async () => {
+  it.skip('should render loader when handleClick is triggered and promise not resolved', () => {
+    const body = {
+      title: 'The Force Awakens',
+      opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
+      release_date: '2015-12-11',
+      episode_id: '7'
+    }
+
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM2_URL, { status: 200, body });
+    fetchMock.get(FILM3_URL, { status: 200, body });
+    fetchMock.get(FILM4_URL, { status: 200, body });
+    fetchMock.get(FILM5_URL, { status: 200, body });
+    fetchMock.get(FILM6_URL, { status: 200, body });
+    fetchMock.get(FILM7_URL, { status: 200, body });
+
+    const info1 = {
+      name: 'Sand Crawler',
+      model: 'Digger Crawler',
+      vehicle_class: 'wheeled',
+      passengers: '30',
+    }
+
+    fetchMock.get(VEHICLES_URL, {
+      status: 200,
+      body: { results: [info1] }
+    });
+
+    const wrapper = mount(<App />);
+    const vehiclesBtn = wrapper.find('#fetch-vehicles-btn');
+
+    expect(wrapper.find('Loader').length).toBe(0);
+
+    vehiclesBtn.simulate('click');
+
+    expect(wrapper.find('Loader').length).toBe(1);
   });
 
   it.skip('should change isLoading state to false when handleClick is triggered and promise resolved', async () => {
+    const body = {
+      title: 'The Force Awakens',
+      opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
+      release_date: '2015-12-11',
+      episode_id: '7'
+    }
+
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM2_URL, { status: 200, body });
+    fetchMock.get(FILM3_URL, { status: 200, body });
+    fetchMock.get(FILM4_URL, { status: 200, body });
+    fetchMock.get(FILM5_URL, { status: 200, body });
+    fetchMock.get(FILM6_URL, { status: 200, body });
+    fetchMock.get(FILM7_URL, { status: 200, body });
+
+    const info1 = {
+      name: 'Sand Crawler',
+      model: 'Digger Crawler',
+      vehicle_class: 'wheeled',
+      passengers: '30',
+    }
+
+    fetchMock.get(VEHICLES_URL, {
+      status: 200,
+      body: { results: [info1] }
+    });
+
+    const wrapper = mount(<App />);
+    const vehiclesBtn = wrapper.find('#fetch-vehicles-btn');
+
+    expect(wrapper.state('isLoading')).toBe(false);
+
+    vehiclesBtn.simulate('click');
+
+    expect(wrapper.state('isLoading')).toBe(true);
+
+    await resolveAfter2Seconds();
+
+    expect(wrapper.state('isLoading')).toBe(false);
   });
 
   it.skip('should not render loader when handleClick is triggered and promise resolved', async () => {
+    const body = {
+      title: 'The Force Awakens',
+      opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
+      release_date: '2015-12-11',
+      episode_id: '7'
+    }
+
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM2_URL, { status: 200, body });
+    fetchMock.get(FILM3_URL, { status: 200, body });
+    fetchMock.get(FILM4_URL, { status: 200, body });
+    fetchMock.get(FILM5_URL, { status: 200, body });
+    fetchMock.get(FILM6_URL, { status: 200, body });
+    fetchMock.get(FILM7_URL, { status: 200, body });
+
+    const info1 = {
+      name: 'Sand Crawler',
+      model: 'Digger Crawler',
+      vehicle_class: 'wheeled',
+      passengers: '30',
+    }
+
+    fetchMock.get(VEHICLES_URL, {
+      status: 200,
+      body: { results: [info1] }
+    });
+
+    const wrapper = mount(<App />);
+    const vehiclesBtn = wrapper.find('#fetch-vehicles-btn');
+
+    expect(wrapper.find('Loader').length).toBe(0);
+
+    vehiclesBtn.simulate('click');
+
+    expect(wrapper.find('Loader').length).toBe(1);
+
+    await resolveAfter2Seconds();
+
+    expect(wrapper.find('Loader').length).toBe(0);
   });
 
   // Joe
