@@ -1,6 +1,6 @@
 import React from 'react';
 import xWing from '../utils/x-wing.svg';
-import { bool, string, number, func, arrayOf, shape } from 'prop-types';
+import { bool, string, number, func, arrayOf, shape, oneOfType } from 'prop-types';
 import './styles/FavoriteButton.css';
 
 const FavoriteButton = ({ displayFavorites, favorites, inFavorites }) => {
@@ -17,7 +17,7 @@ const FavoriteButton = ({ displayFavorites, favorites, inFavorites }) => {
 
 const allData = shape({
   name: string,
-  population: number,
+  population: oneOfType([number, string]),
   homeworld: string,
   species: string,
   language: string,

@@ -22,21 +22,22 @@ describe('App.js tests', () => {
   const PEOPLE_URL = 'http://swapi.co/api/vehicles/';
   const resolveAfter2Seconds = () => new Promise(resolve => setTimeout(() => resolve(), 2000));
 
-  global.localStorage = new LocalStorageMock;
+  global.localStorage = new LocalStorageMock();
+  localStorage.setItem('favorites', [])
 
   afterEach(() => {
     expect(fetchMock.calls().unmatched).toEqual([]);
     fetchMock.restore();
   });
 
-  it.skip('should render the correct components when it mounts', () => {
+  it('should render the correct components when it mounts', () => {
     const wrapper = shallow(<App/>)
 
     expect(wrapper.find('.App').length).toEqual(1)
     expect(wrapper.find('Main').length).toEqual(1)
   });
 
-  it.skip('should have a default state', () => {
+  it('should have a default state', () => {
     const wrapper = shallow(<App />);
     const appState = wrapper.state();
     const expected = {
@@ -56,7 +57,7 @@ describe('App.js tests', () => {
     expect(appState).toEqual(expected);
   });
 
-  it.skip('should add film to state when it mounts', async () => {
+  it('should add film to state when it mounts', async () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -87,7 +88,7 @@ describe('App.js tests', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should render scroller with film data when it mounts', async () => {
+  it('should render scroller with film data when it mounts', async () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -121,7 +122,7 @@ describe('App.js tests', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should change errorStatus state if film fetch fails', async () => {
+  it('should change errorStatus state if film fetch fails', async () => {
     const expected = 'Error fetching film';
 
     fetchMock.get(FILM1_URL, { status: 500 });
@@ -146,13 +147,13 @@ describe('App.js tests', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should render no cards on mount', () => {
+  it('should render no cards on mount', () => {
     const wrapper = mount(<App />);
 
     expect(wrapper.find('Card').length).toBe(0);
   });
 
-  it.skip('should render card if selectedData state not empty', () => {
+  it('should render card if selectedData state not empty', () => {
     const wrapper = mount(<App />);
     const selectedData = [{
       name: 'R2-D2',
@@ -169,7 +170,7 @@ describe('App.js tests', () => {
     expect(wrapper.find('Card').length).toBe(1);
   });
 
-  it.skip('should add data to selectedData and people state when people button clicked', async () => {
+  it('should add data to selectedData and people state when people button clicked', async () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -255,7 +256,7 @@ describe('App.js tests', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should add people state data to selectedData state if people state not empty and when people button clicked', async () => {
+  it('should add people state data to selectedData state if people state not empty and when people button clicked', async () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -344,7 +345,7 @@ describe('App.js tests', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should render cards of people', async () => {
+  it('should render cards of people', async () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -428,7 +429,7 @@ describe('App.js tests', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should change errorStatus state if people fetch fails', async () => {
+  it('should change errorStatus state if people fetch fails', async () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -473,8 +474,7 @@ describe('App.js tests', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  // Juan
-  it.skip('should add data to selectedData and planets state when planets button clicked', async () => {
+  it('should add data to selectedData and planets state when planets button clicked', async () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -545,7 +545,7 @@ describe('App.js tests', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should add planets state data to selectedData state if planets state not empty and when planets button clicked', () => {
+  it('should add planets state data to selectedData state if planets state not empty and when planets button clicked', () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -596,7 +596,7 @@ describe('App.js tests', () => {
     expect(wrapper.state('selectedData')).toEqual(expected);
   });
 
-  it.skip('should render cards of planets', async () => {
+  it('should render cards of planets', async () => {
     const PLANETS_URL = 'http://swapi.co/api/planets/';
     const PEOPLE1_URL = 'http://swapi.co/api/people/1';
     const PEOPLE2_URL = 'http://swapi.co/api/people/2';
@@ -663,7 +663,7 @@ describe('App.js tests', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should change errorStatus state if planets fetch fails', async () => {
+  it('should change errorStatus state if planets fetch fails', async () => {
     const PLANETS_URL = 'http://swapi.co/api/planets/';
     const PEOPLE1_URL = 'http://swapi.co/api/people/1';
     const PEOPLE2_URL = 'http://swapi.co/api/people/2';
@@ -701,8 +701,7 @@ describe('App.js tests', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  // Juan
-  it.skip('should add data to selectedData and vehicles state when vehicles button clicked', async () => {
+  it('should add data to selectedData and vehicles state when vehicles button clicked', async () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -757,7 +756,7 @@ describe('App.js tests', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should add vehicles state data to selectedData state if vehicles state not empty and when vehicles button clicked', () => {
+  it('should add vehicles state data to selectedData state if vehicles state not empty and when vehicles button clicked', () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -807,7 +806,7 @@ describe('App.js tests', () => {
     expect(wrapper.state('selectedData')).toEqual(expected);
   });
 
-  it.skip('should render cards of vehicles', async () => {
+  it('should render cards of vehicles', async () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -855,7 +854,7 @@ describe('App.js tests', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should change errorStatus state if vehicles fetch fails', async () => {
+  it('should change errorStatus state if vehicles fetch fails', async () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -888,7 +887,6 @@ describe('App.js tests', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  // Joe
   it('should change inFavorites state to false when handleClick is triggered', async () => {
     const body = {
       title: 'The Force Awakens',
@@ -949,6 +947,8 @@ describe('App.js tests', () => {
     wrapper.setState({ inFavorites: true });
 
     planetsButton.simulate('click');
+
+    await resolveAfter2Seconds();
 
     expect(wrapper.state('inFavorites')).toBe(false);
   });
@@ -1017,8 +1017,7 @@ describe('App.js tests', () => {
     expect(wrapper.state('activeAnim')).toBe(false);
   });
 
-  // Juan
-  it.skip('should change selectedButton state to the title of the button clicked', async () => {
+  it('should change selectedButton state to the title of the button clicked', async () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -1087,7 +1086,7 @@ describe('App.js tests', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should change isLoading state to true when handleClick is triggered and promise not resolved', () => {
+  it('should change isLoading state to true when handleClick is triggered and promise not resolved', () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -1126,7 +1125,7 @@ describe('App.js tests', () => {
     expect(wrapper.state('isLoading')).toBe(true);
   });
 
-  it.skip('should render loader when handleClick is triggered and promise not resolved', () => {
+  it('should render loader when handleClick is triggered and promise not resolved', () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -1165,7 +1164,7 @@ describe('App.js tests', () => {
     expect(wrapper.find('Loader').length).toBe(1);
   });
 
-  it.skip('should change isLoading state to false when handleClick is triggered and promise resolved', async () => {
+  it('should change isLoading state to false when handleClick is triggered and promise resolved', async () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -1208,7 +1207,7 @@ describe('App.js tests', () => {
     expect(wrapper.state('isLoading')).toBe(false);
   });
 
-  it.skip('should not render loader when handleClick is triggered and promise resolved', async () => {
+  it('should not render loader when handleClick is triggered and promise resolved', async () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -1251,31 +1250,254 @@ describe('App.js tests', () => {
     expect(wrapper.find('Loader').length).toBe(0);
   });
 
-  // Joe
-  it.skip('should add correct card to favorites if save button is triggered', () => {
+  it('should add correct card to favorites if save button is triggered', async () => {
+    const body = {
+      title: 'The Force Awakens',
+      opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
+      release_date: '2015-12-11',
+      episode_id: '7'
+    }
 
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM2_URL, { status: 200, body });
+    fetchMock.get(FILM3_URL, { status: 200, body });
+    fetchMock.get(FILM4_URL, { status: 200, body });
+    fetchMock.get(FILM5_URL, { status: 200, body });
+    fetchMock.get(FILM6_URL, { status: 200, body });
+    fetchMock.get(FILM7_URL, { status: 200, body });
+
+    const info1 = {
+      name: 'Sand Crawler',
+      model: 'Digger Crawler',
+      vehicle_class: 'wheeled',
+      passengers: '30',
+    }
+
+    fetchMock.get(VEHICLES_URL, {
+      status: 200,
+      body: { results: [info1] }
+    });
+
+    const wrapper = mount(<App />);
+
+    wrapper.setState({ selectedData: [info1] });
+
+    const saveButton = wrapper.find('.card-favorite-button');
+
+    expect(wrapper.state('favorites')).toEqual([]);
+
+    saveButton.simulate('click');
+
+    expect(wrapper.state('favorites')).toEqual([info1]);
+    expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should render correct favorites length in button when card is added', () => {
+  it('should render correct favorites length in button when card is added', () => {
+    const body = {
+      title: 'The Force Awakens',
+      opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
+      release_date: '2015-12-11',
+      episode_id: '7'
+    }
+
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM2_URL, { status: 200, body });
+    fetchMock.get(FILM3_URL, { status: 200, body });
+    fetchMock.get(FILM4_URL, { status: 200, body });
+    fetchMock.get(FILM5_URL, { status: 200, body });
+    fetchMock.get(FILM6_URL, { status: 200, body });
+    fetchMock.get(FILM7_URL, { status: 200, body });
+
+    const info1 = {
+      name: 'Sand Crawler',
+      model: 'Digger Crawler',
+      vehicle_class: 'wheeled',
+      passengers: '30',
+    }
+
+    const wrapper = mount(<App />);
+    const displayFavoritesBtn = wrapper.find('.favorite-button');
+    let length = wrapper.find('.favorite-button-label').props().children[1].props
+
+    expect(length).toEqual({});
+
+    wrapper.setState({ favorites: [info1] });
+
+    length = wrapper.find('.favorite-button-label').props().children[1].props.children[1];
+
+    expect(length).toEqual(1);
+    expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should change activeAnim state to true when toggleFavorites is triggered', () => {
+  it('should change activeAnim state to true when toggleFavorites is triggered', () => {
+    const body = {
+      title: 'The Force Awakens',
+      opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
+      release_date: '2015-12-11',
+      episode_id: '7'
+    }
+
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM2_URL, { status: 200, body });
+    fetchMock.get(FILM3_URL, { status: 200, body });
+    fetchMock.get(FILM4_URL, { status: 200, body });
+    fetchMock.get(FILM5_URL, { status: 200, body });
+    fetchMock.get(FILM6_URL, { status: 200, body });
+    fetchMock.get(FILM7_URL, { status: 200, body });
+
+    const info1 = {
+      name: 'Sand Crawler',
+      model: 'Digger Crawler',
+      vehicle_class: 'wheeled',
+      passengers: '30',
+    }
+
+    const wrapper = mount(<App />);
+
+    wrapper.setState({ selectedData: [info1] });
+
+    const saveButton = wrapper.find('.card-favorite-button');
+
+    expect(wrapper.state('activeAnim')).toBe(false);
+
+    saveButton.simulate('click');
+
+    expect(wrapper.state('activeAnim')).toBe(true);
+    expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should remove correct card in favorites if save button is triggered and card already in favorites', () => {
+  it('should remove correct card in favorites if save button is triggered and card already in favorites', () => {
+    const body = {
+      title: 'The Force Awakens',
+      opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
+      release_date: '2015-12-11',
+      episode_id: '7'
+    }
+
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM2_URL, { status: 200, body });
+    fetchMock.get(FILM3_URL, { status: 200, body });
+    fetchMock.get(FILM4_URL, { status: 200, body });
+    fetchMock.get(FILM5_URL, { status: 200, body });
+    fetchMock.get(FILM6_URL, { status: 200, body });
+    fetchMock.get(FILM7_URL, { status: 200, body });
+
+    const info1 = {
+      name: 'Sand Crawler',
+      model: 'Digger Crawler',
+      vehicle_class: 'wheeled',
+      passengers: '30',
+    }
+
+    fetchMock.get(VEHICLES_URL, {
+      status: 200,
+      body: { results: [info1] }
+    });
+
+    const wrapper = mount(<App />);
+
+    wrapper.setState({ favorites: [info1], inFavorites: true, selectedData: [info1] });
+
+    const saveButton = wrapper.find('.card-favorite-button');
+
+    expect(wrapper.state('favorites')).toEqual([info1]);
+
+    saveButton.simulate('click');
+
+    expect(wrapper.state('favorites')).toEqual([]);
+    expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should render correct favorites length in button when card is removed', () => {
+  it('should render correct favorites length in button when card is removed', () => {
+    const body = {
+      title: 'The Force Awakens',
+      opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
+      release_date: '2015-12-11',
+      episode_id: '7'
+    }
+
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM2_URL, { status: 200, body });
+    fetchMock.get(FILM3_URL, { status: 200, body });
+    fetchMock.get(FILM4_URL, { status: 200, body });
+    fetchMock.get(FILM5_URL, { status: 200, body });
+    fetchMock.get(FILM6_URL, { status: 200, body });
+    fetchMock.get(FILM7_URL, { status: 200, body });
+
+    const info1 = {
+      name: 'Sand Crawler',
+      model: 'Digger Crawler',
+      vehicle_class: 'wheeled',
+      passengers: '30',
+    }
+
+    const wrapper = mount(<App />);
+    const displayFavoritesBtn = wrapper.find('.favorite-button');
+    let length = wrapper.find('.favorite-button-label').props().children[1].props;
+
+    expect(length).toEqual({});
+
+    wrapper.setState({ favorites: [info1] });
+
+    displayFavoritesBtn.simulate('click')
+
+    length = wrapper.find('.favorite-button-label').props().children[1].props.children[1];
+
+    expect(length).toBe(1);
+
+    const saveButton = wrapper.find('.card-favorite-button');
+
+    saveButton.simulate('click');
+
+    length = wrapper.find('.favorite-button-label').props().children[1].props;
+
+    expect(length).toEqual({});
+    expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should add favorites in localStorage to state on mount', () => {
+  it.skip('should add localStorage data in favorites to state on mount', () => {
+    const body = {
+      title: 'The Force Awakens',
+      opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
+      release_date: '2015-12-11',
+      episode_id: '7'
+    }
+
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM2_URL, { status: 200, body });
+    fetchMock.get(FILM3_URL, { status: 200, body });
+    fetchMock.get(FILM4_URL, { status: 200, body });
+    fetchMock.get(FILM5_URL, { status: 200, body });
+    fetchMock.get(FILM6_URL, { status: 200, body });
+    fetchMock.get(FILM7_URL, { status: 200, body });
+
+    const info1 = {
+      name: 'Sand Crawler',
+      model: 'Digger Crawler',
+      vehicle_class: 'wheeled',
+      passengers: '30',
+    }
+
+    fetchMock.get(VEHICLES_URL, {
+      status: 200,
+      body: { results: [info1] }
+    });
+
+    localStorage.setItem('favorites', info1);
+
+    const wrapper = mount(<App />);
+
+    expect(wrapper.state('favorites')).toEqual(info1);
+    expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should add favorites to localStorage when toggleFavorites is triggered', () => {
-  });
-
-  // Juan
-  it.skip('should change inFavorites state to true when displayFavorites is triggered', () => {
+  it('should change inFavorites state to true when displayFavorites is triggered', () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -1302,7 +1524,7 @@ describe('App.js tests', () => {
     expect(wrapper.state('inFavorites')).toBe(true);
   });
 
-  it.skip('should change selectedData to favorites data if displayFavorites is triggered', () => {
+  it('should change selectedData to favorites data if displayFavorites is triggered', () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -1351,7 +1573,7 @@ describe('App.js tests', () => {
     expect(wrapper.state('selectedData')).toEqual(expected);
   });
 
-  it.skip('should render favorites message if there are no favorites', () => {
+  it('should render favorites message if there are no favorites', () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -1379,7 +1601,7 @@ describe('App.js tests', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should render favorite cards if inFavorites is true', () => {
+  it('should render favorite cards if inFavorites is true', () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
@@ -1429,7 +1651,7 @@ describe('App.js tests', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should not render favorite cards if removed', () => {
+  it('should not render favorite cards if removed', () => {
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',

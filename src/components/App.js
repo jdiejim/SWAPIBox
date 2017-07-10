@@ -26,31 +26,39 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // const favorites = localStorage.getItem('favorites') ?
-    //   JSON.parse(localStorage.getItem('favorites')) : [];
-    // if (favorites.length) {
-    //   this.setState({ favorites })
-    // }
+    // const favorites = this.getFavorites();
+    //
+    // this.setState({ favorites });
     fetchData('/', this);
     window.addEventListener('scroll', this.stickyNav);
   }
 
-  setLocalStorage() {
-    localStorage.setItem('favorites', JSON.stringify(this.state.favorites));
+  setLocalStorage(favorites) {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }
+
+  getFavorites() {
+    if (!localStorage.getItem('favorites')) {
+      this.setLocalStorage([]);
+      return [];
+    }
+
+    return JSON.parse(localStorage.getItem('favorites'));
   }
 
   toggleFavorites(info) {
     let favorites = this.state.favorites;
+
     if (!favorites.find(e => e.name === info.name)) {
       favorites.push(info);
     } else {
-      favorites = favorites.filter(e => e.name !== info.name)
+      favorites = favorites.filter(e => e.name !== info.name);
     }
     if (this.state.inFavorites) {
       this.setState({ selectedData: favorites, favorites, activeAnim: true });
     }
     this.setState({ favorites, activeAnim: true });
-    this.setLocalStorage();
+    this.setLocalStorage(favorites);
   }
 
   handleClick(title) {

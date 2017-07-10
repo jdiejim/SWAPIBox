@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import CardList from './CardList';
-import { arrayOf, func, string, bool, shape } from 'prop-types';
+import { arrayOf, func, string, number, bool, shape, oneOfType } from 'prop-types';
 import './styles/Main.css';
 
 const Main = ({ selectedData, favorites, handleClick, toggleFavorites, displayFavorites, isLoading, inFavorites, activeAnim, selectedButton }) => {
@@ -28,7 +28,7 @@ const Main = ({ selectedData, favorites, handleClick, toggleFavorites, displayFa
 
 const allData = shape({
   name: string,
-  population: string,
+  population: oneOfType([string, number]),
   homeworld: string,
   species: string,
   language: string,
