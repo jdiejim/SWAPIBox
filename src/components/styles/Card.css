@@ -1,8 +1,3 @@
-@keyframes stars {
-  20%  {opacity: 1; }
-  100% { background-position: 20rem 0; opacity: 0; }
-}
-
 @keyframes appear {
   from { transform: scaleY(0); }
   to   { transform: scaleY(100%); }
@@ -16,7 +11,7 @@
 .card {
   position: relative;
   width: 30%;
-  height: 350px;
+  height: 400px;
   padding: 20px;
   margin: 10px;
   border: 2px solid #494949;
@@ -58,8 +53,8 @@
 }
 
 .bg-stars {
-  animation: stars 10s linear infinite;
   background-position: center 0;
+  opacity: 1;
 }
 
 .bg-emblem {
@@ -78,15 +73,14 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
   background-repeat: no-repeat;
-  background-size: 170%;
+  background-size: 800px;
   background-position: 40% 50%;
   opacity: 0.3;
 }
 
 .card-selected {
-  background-color: rgba(73, 73, 73, 0.5);
+  border: 3px solid #FEDA4A;
 }
 
 .card-title-wrapper {
@@ -128,7 +122,7 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  margin: 0;
+  margin: 20px 0;
 }
 
 .card-selected .card-favorite-button {
@@ -153,4 +147,9 @@
 
 .card-favorite-button:focus {
   outline: none;
+}
+
+.residents {
+  height: 50px;
+  overflow: scroll;
 }

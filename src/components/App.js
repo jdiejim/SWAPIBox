@@ -26,11 +26,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const favorites = localStorage.getItem('favorites') ?
-      JSON.parse(localStorage.getItem('favorites')) : '';
-    if (favorites.length) {
-      this.setState({ favorites })
-    }
+    // const favorites = localStorage.getItem('favorites') ?
+    //   JSON.parse(localStorage.getItem('favorites')) : [];
+    // if (favorites.length) {
+    //   this.setState({ favorites })
+    // }
     // fetchData('/', this);
     window.addEventListener('scroll', this.stickyNav);
   }

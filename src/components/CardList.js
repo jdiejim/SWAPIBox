@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, bool, object, arrayOf, func, shape } from 'prop-types';
+import { string, bool, arrayOf, func, shape } from 'prop-types';
 import { getKey } from '../utils/helper_functions';
 import darth from '../utils/darth-vader.gif';
 import Card from './Card';
@@ -18,10 +18,11 @@ const CardList = ({ selectedData, favorites, toggleFavorites, inFavorites, isLoa
       toggleFavorites={toggleFavorites}
     />
   );
+
+  const bgMsg = { backgroundImage: `url(${darth})`}
   const favoriteMsg = (
     <div className="no-favorites">
-      <h1 className="fav-msg">i find your lack of favorites disturbing!</h1>
-      <img className="fav-img" src={darth} />
+      <h1 className="fav-msg" style={bgMsg}>i find your lack of favorites disturbing!</h1>
     </div>
   );
   const views = !favorites.length && inFavorites ? favoriteMsg : cards;
