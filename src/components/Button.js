@@ -6,7 +6,7 @@ const Button = ( { title, handleClick, selectedButton }) => {
   const buttonClass = selectedButton === title ? 'fetch-button selected-button' : 'fetch-button';
 
   return (
-    <button className={buttonClass} onClick={ () => handleClick(title) }>
+    <button id={`fetch-${title}-btn`} className={buttonClass} onClick={ () => handleClick(title) }>
       {title}
     </button>
   );

@@ -31,7 +31,7 @@ class App extends Component {
     // if (favorites.length) {
     //   this.setState({ favorites })
     // }
-    // fetchData('/', this);
+    fetchData('/', this);
     window.addEventListener('scroll', this.stickyNav);
   }
 

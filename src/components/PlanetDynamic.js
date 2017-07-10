@@ -4,6 +4,10 @@ import { string } from 'prop-types';
 import './styles/PlanetDynamic.css';
 
 const PlanetDynamic = ({ terrain }) => {
+  if (!planetColors[terrain]) {
+    return <div />;
+  }
+
   const light = planetColors[terrain].l;
   const dark = planetColors[terrain].d;
   const planetStyle = { background: `linear-gradient(to top left, ${light} 20%, ${dark})` };

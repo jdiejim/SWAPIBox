@@ -50,7 +50,6 @@ describe('Vehicles.js', () => {
   });
 
   it('should fetch the correct vehicle', async () => {
-
     expect(vehicle1.name).toBe('Sand Crawler');
     expect(vehicle1.model).toBe('Digger Crawler');
     expect(vehicle1.vehicleClass).toBe('wheeled');
