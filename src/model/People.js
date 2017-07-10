@@ -14,27 +14,27 @@ class People {
         .catch(err => component.setState({ errorStatus: 'Error fetching people' }));
   }
 
-  getPeople() {
+  getPeople(component) {
     return fetch(PEOPLE_URL)
             .then(res => res.json())
-            .then(({ results }) => Promise.all(results.map(this.getPerson.bind(this))));
+            .then(({ results }) => Promise.all(results.map(this.getPerson.bind(this))))
   }
 
   getPerson({ name, homeworld, species }) {
     return Promise.all([this.getHomeWorld(homeworld), this.getSpecies(species[0])])
-                  .then(res => new Person(name, res));
+                  .then(res => new Person(name, res))
   }
 
   getHomeWorld(url) {
     return fetch(url)
             .then(res => res.json())
-            .then(({ name: homeworld, population }) => ({ homeworld, population }));
+            .then(({ name: homeworld, population }) => ({ homeworld, population }))
   }
 
   getSpecies(url) {
     return fetch(url)
             .then(res => res.json())
-            .then(({ name: species, language }) => ({ species, language }));
+            .then(({ name: species, language }) => ({ species, language }))
   }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, number, bool, arrayOf, func, shape } from 'prop-types';
+import { string, bool, arrayOf, func, shape } from 'prop-types';
 import { getKey } from '../utils/helper_functions';
 import darth from '../utils/darth-vader.gif';
 import Card from './Card';
@@ -37,7 +37,7 @@ const CardList = ({ selectedData, favorites, toggleFavorites, inFavorites, isLoa
 
 const allData = shape({
   name: string,
-  population: number,
+  population: string,
   homeworld: string,
   species: string,
   language: string,
