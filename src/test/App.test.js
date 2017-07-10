@@ -6,6 +6,8 @@ import App from '../components/App';
 import LocalStorageMock from './mockData/LocalStorageMock';
 import Planet from '../model/Planet';
 import Vehicle from '../model/Vehicle';
+import Person from '../model/Person';
+
 
 describe('App.js tests', () => {
   const FILM1_URL = 'http://swapi.co/api/films/1';
@@ -17,6 +19,7 @@ describe('App.js tests', () => {
   const FILM7_URL = 'http://swapi.co/api/films/7';
   const PLANETS_URL = 'http://swapi.co/api/planets/';
   const VEHICLES_URL = 'http://swapi.co/api/vehicles/';
+  const PEOPLE_URL = 'http://swapi.co/api/vehicles/';
   const resolveAfter2Seconds = () => new Promise(resolve => setTimeout(() => resolve(), 2000));
 
   global.localStorage = new LocalStorageMock;
@@ -166,18 +169,308 @@ describe('App.js tests', () => {
     expect(wrapper.find('Card').length).toBe(1);
   });
 
-  // Joe
   it.skip('should add data to selectedData and people state when people button clicked', async () => {
+    const body = {
+      title: 'The Force Awakens',
+      opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
+      release_date: '2015-12-11',
+      episode_id: '7'
+    }
+
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM2_URL, { status: 200, body });
+    fetchMock.get(FILM3_URL, { status: 200, body });
+    fetchMock.get(FILM4_URL, { status: 200, body });
+    fetchMock.get(FILM5_URL, { status: 200, body });
+    fetchMock.get(FILM6_URL, { status: 200, body });
+    fetchMock.get(FILM7_URL, { status: 200, body });
+
+    const PEOPLE_URL = 'http://swapi.co/api/people/';
+    const SPECIES1_URL = 'http://swapi.co/api/species/1/';
+    const PLANET1_URL = 'http://swapi.co/api/planets/1/';
+    const PERSON1_URL = 'http://swapi.co/api/people/1/';
+    const SPECIES2_URL = 'http://swapi.co/api/species/2/';
+    const PLANET2_URL = 'http://swapi.co/api/planets/8/';
+    const PERSON2_URL = 'http://swapi.co/api/people/3/';
+    const info1 = {
+      name: 'Luke Skywalker',
+      homeworld: PLANET1_URL,
+      species: [SPECIES1_URL]
+    }
+    const response1 = [
+      { homeworld: 'Tatooine', population: '200000' },
+      { species: 'Human', language: 'Galactic Basic' }
+    ];
+    const info2 = {
+      name: 'R2-D2',
+      homeworld: PLANET2_URL,
+      species: [SPECIES2_URL]
+    }
+    const response2 = [
+      { homeworld: 'Naboo', population: '4500000000' },
+      { species: 'Droid', language: 'n/a' }
+    ];
+    const person1 = new Person('Luke Skywalker', response1);
+    const person2 = new Person('R2-D2', response2);
+    const expected = [person1, person2];
+
+    fetchMock.get(PEOPLE_URL, {
+      status: 200,
+      body: { results: [info1, info2] }
+    });
+
+    fetchMock.get(PLANET1_URL, {
+      status: 200,
+      body: { name: 'Tatooine', population: '200000' }
+    });
+
+    fetchMock.get(SPECIES1_URL, {
+      status: 200,
+      body: { name: 'Human', language: 'Galactic Basic' }
+    });
+
+    fetchMock.get(PLANET2_URL, {
+      status: 200,
+      body: { name: 'Naboo', population: '4500000000' }
+    });
+
+    fetchMock.get(SPECIES2_URL, {
+      status: 200,
+      body: { name: 'Droid', language: 'n/a' }
+    });
+
+    const wrapper = mount(<App />);
+    const peopleButton = wrapper.find('#fetch-people-btn');
+
+    expect(wrapper.state('selectedData')).toEqual([]);
+    expect(wrapper.state('people')).toEqual([]);
+
+    peopleButton.simulate('click');
+
+    await resolveAfter2Seconds();
+
+    expect(wrapper.state('selectedData')).toEqual(expected);
+    expect(wrapper.state('people')).toEqual(expected);
+    expect(fetchMock.called()).toBe(true);
   });
 
   it.skip('should add people state data to selectedData state if people state not empty and when people button clicked', async () => {
+    const body = {
+      title: 'The Force Awakens',
+      opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
+      release_date: '2015-12-11',
+      episode_id: '7'
+    }
+
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM2_URL, { status: 200, body });
+    fetchMock.get(FILM3_URL, { status: 200, body });
+    fetchMock.get(FILM4_URL, { status: 200, body });
+    fetchMock.get(FILM5_URL, { status: 200, body });
+    fetchMock.get(FILM6_URL, { status: 200, body });
+    fetchMock.get(FILM7_URL, { status: 200, body });
+
+    const PEOPLE_URL = 'http://swapi.co/api/people/';
+    const SPECIES1_URL = 'http://swapi.co/api/species/1/';
+    const PLANET1_URL = 'http://swapi.co/api/planets/1/';
+    const PERSON1_URL = 'http://swapi.co/api/people/1/';
+    const SPECIES2_URL = 'http://swapi.co/api/species/2/';
+    const PLANET2_URL = 'http://swapi.co/api/planets/8/';
+    const PERSON2_URL = 'http://swapi.co/api/people/3/';
+    const info1 = {
+      name: 'Luke Skywalker',
+      homeworld: PLANET1_URL,
+      species: [SPECIES1_URL]
+    }
+    const response1 = [
+      { homeworld: 'Tatooine', population: '200000' },
+      { species: 'Human', language: 'Galactic Basic' }
+    ];
+    const info2 = {
+      name: 'R2-D2',
+      homeworld: PLANET2_URL,
+      species: [SPECIES2_URL]
+    }
+    const response2 = [
+      { homeworld: 'Naboo', population: '4500000000' },
+      { species: 'Droid', language: 'n/a' }
+    ];
+    const person1 = new Person('Luke Skywalker', response1);
+    const person2 = new Person('R2-D2', response2);
+    const expected = [person1, person2];
+
+    fetchMock.get(PEOPLE_URL, {
+      status: 200,
+      body: { results: [info1, info2] }
+    });
+
+    fetchMock.get(PLANET1_URL, {
+      status: 200,
+      body: { name: 'Tatooine', population: '200000' }
+    });
+
+    fetchMock.get(SPECIES1_URL, {
+      status: 200,
+      body: { name: 'Human', language: 'Galactic Basic' }
+    });
+
+    fetchMock.get(PLANET2_URL, {
+      status: 200,
+      body: { name: 'Naboo', population: '4500000000' }
+    });
+
+    fetchMock.get(SPECIES2_URL, {
+      status: 200,
+      body: { name: 'Droid', language: 'n/a' }
+    });
+
+    const wrapper = mount(<App />);
+    const peopleButton = wrapper.find('#fetch-people-btn');
+
+    expect(wrapper.state('selectedData')).toEqual([]);
+    expect(wrapper.state('people')).toEqual([]);
+
+    wrapper.setState({ people: expected})
+
+    expect(wrapper.state('people')).toEqual(expected);
+
+    peopleButton.simulate('click');
+
+    await resolveAfter2Seconds();
+
+    expect(wrapper.state('selectedData')).toEqual(expected);
+    expect(fetchMock.called()).toBe(true);
   });
 
   it.skip('should render cards of people', async () => {
+    const body = {
+      title: 'The Force Awakens',
+      opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
+      release_date: '2015-12-11',
+      episode_id: '7'
+    }
+
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM2_URL, { status: 200, body });
+    fetchMock.get(FILM3_URL, { status: 200, body });
+    fetchMock.get(FILM4_URL, { status: 200, body });
+    fetchMock.get(FILM5_URL, { status: 200, body });
+    fetchMock.get(FILM6_URL, { status: 200, body });
+    fetchMock.get(FILM7_URL, { status: 200, body });
+
+    const PEOPLE_URL = 'http://swapi.co/api/people/';
+    const SPECIES1_URL = 'http://swapi.co/api/species/1/';
+    const PLANET1_URL = 'http://swapi.co/api/planets/1/';
+    const PERSON1_URL = 'http://swapi.co/api/people/1/';
+    const SPECIES2_URL = 'http://swapi.co/api/species/2/';
+    const PLANET2_URL = 'http://swapi.co/api/planets/8/';
+    const PERSON2_URL = 'http://swapi.co/api/people/3/';
+    const info1 = {
+      name: 'Luke Skywalker',
+      homeworld: PLANET1_URL,
+      species: [SPECIES1_URL]
+    }
+    const response1 = [
+      { homeworld: 'Tatooine', population: '200000' },
+      { species: 'Human', language: 'Galactic Basic' }
+    ];
+    const info2 = {
+      name: 'R2-D2',
+      homeworld: PLANET2_URL,
+      species: [SPECIES2_URL]
+    }
+    const response2 = [
+      { homeworld: 'Naboo', population: '4500000000' },
+      { species: 'Droid', language: 'n/a' }
+    ];
+    const person1 = new Person('Luke Skywalker', response1);
+    const person2 = new Person('R2-D2', response2);
+    const expected = [person1, person2];
+
+    fetchMock.get(PEOPLE_URL, {
+      status: 200,
+      body: { results: [info1, info2] }
+    });
+
+    fetchMock.get(PLANET1_URL, {
+      status: 200,
+      body: { name: 'Tatooine', population: '200000' }
+    });
+
+    fetchMock.get(SPECIES1_URL, {
+      status: 200,
+      body: { name: 'Human', language: 'Galactic Basic' }
+    });
+
+    fetchMock.get(PLANET2_URL, {
+      status: 200,
+      body: { name: 'Naboo', population: '4500000000' }
+    });
+
+    fetchMock.get(SPECIES2_URL, {
+      status: 200,
+      body: { name: 'Droid', language: 'n/a' }
+    });
+
+    const wrapper = mount(<App />);
+    const peopleButton = wrapper.find('#fetch-people-btn');
+
+    expect(wrapper.find('Card').length).toBe(0);
+
+    peopleButton.simulate('click');
+
+    await resolveAfter2Seconds();
+
+    expect(wrapper.find('Card').length).toBe(2);
+    expect(fetchMock.called()).toBe(true);
   });
 
   it.skip('should change errorStatus state if people fetch fails', async () => {
+    const body = {
+      title: 'The Force Awakens',
+      opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
+      release_date: '2015-12-11',
+      episode_id: '7'
+    }
+
+    const PEOPLE_URL = 'http://swapi.co/api/people/';
+    const SPECIES1_URL = 'http://swapi.co/api/species/1/';
+    const PLANET1_URL = 'http://swapi.co/api/planets/1/';
+    const PERSON1_URL = 'http://swapi.co/api/people/1/';
+    const SPECIES2_URL = 'http://swapi.co/api/species/2/';
+    const PLANET2_URL = 'http://swapi.co/api/planets/8/';
+    const PERSON2_URL = 'http://swapi.co/api/people/3/';
+
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM2_URL, { status: 200, body });
+    fetchMock.get(FILM3_URL, { status: 200, body });
+    fetchMock.get(FILM4_URL, { status: 200, body });
+    fetchMock.get(FILM5_URL, { status: 200, body });
+    fetchMock.get(FILM6_URL, { status: 200, body });
+    fetchMock.get(FILM7_URL, { status: 200, body });
+    fetchMock.get(PEOPLE_URL, { status: 500 });
+    fetchMock.get(PLANET1_URL, { status: 500 });
+    fetchMock.get(SPECIES1_URL, { status: 500 });
+    fetchMock.get(PLANET2_URL, { status: 500 });
+    fetchMock.get(SPECIES2_URL, { status: 500 });
+
+    const wrapper = mount(<App />);
+    const peopleButton = wrapper.find('#fetch-people-btn');
+
+    expect(wrapper.state('errorStatus')).toBe('');
+
+    peopleButton.simulate('click');
+
+    await resolveAfter2Seconds();
+
     const expected = 'Error fetching people';
+
+    expect(wrapper.state('errorStatus')).toBe(expected);
+    expect(fetchMock.called()).toBe(true);
   });
 
   // Juan
@@ -596,10 +889,132 @@ describe('App.js tests', () => {
   });
 
   // Joe
-  it.skip('should change inFavorites state to false when handleClick is triggered', async () => {
+  it('should change inFavorites state to false when handleClick is triggered', async () => {
+    const body = {
+      title: 'The Force Awakens',
+      opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
+      release_date: '2015-12-11',
+      episode_id: '7'
+    }
+
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM2_URL, { status: 200, body });
+    fetchMock.get(FILM3_URL, { status: 200, body });
+    fetchMock.get(FILM4_URL, { status: 200, body });
+    fetchMock.get(FILM5_URL, { status: 200, body });
+    fetchMock.get(FILM6_URL, { status: 200, body });
+    fetchMock.get(FILM7_URL, { status: 200, body });
+
+    const PLANETS_URL = 'http://swapi.co/api/planets/';
+    const PEOPLE1_URL = 'http://swapi.co/api/people/1';
+    const PEOPLE2_URL = 'http://swapi.co/api/people/2';
+    const info1 = {
+      name: 'Tatooine',
+      terrain: 'rocky',
+      population: 1,
+      climate: 'Tropical',
+      residents: [PEOPLE1_URL]
+    }
+    const info2 = {
+      name: 'Hoth',
+      terrain: 'Ice',
+      population: 2,
+      climate: 'Cold',
+      residents: [PEOPLE2_URL]
+    }
+    const resident1 = ['Luke Skywalker'];
+    const resident2 = ['C-3PO'];
+    const planet1 = new Planet(info1, resident1);
+    const planet2 = new Planet(info2, resident2);
+
+    fetchMock.get(PLANETS_URL, {
+      status: 200,
+      body: { results: [info1, info2] }
+    });
+
+    fetchMock.get(PEOPLE1_URL, {
+      status: 200,
+      body: { name: 'Luke Skywalker' }
+    });
+
+    fetchMock.get(PEOPLE2_URL, {
+      status: 200,
+      body: { name: 'C-3PO' }
+    });
+
+    const wrapper = mount(<App />);
+    const planetsButton = wrapper.find('#fetch-planets-btn')
+
+    wrapper.setState({ inFavorites: true });
+
+    planetsButton.simulate('click');
+
+    expect(wrapper.state('inFavorites')).toBe(false);
   });
 
-  it.skip('should change activeAnim state to false when handleClick is triggered', async () => {
+  it('should change activeAnim state to false when handleClick is triggered', async () => {
+    const body = {
+      title: 'The Force Awakens',
+      opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
+      release_date: '2015-12-11',
+      episode_id: '7'
+    }
+
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM1_URL, { status: 200, body });
+    fetchMock.get(FILM2_URL, { status: 200, body });
+    fetchMock.get(FILM3_URL, { status: 200, body });
+    fetchMock.get(FILM4_URL, { status: 200, body });
+    fetchMock.get(FILM5_URL, { status: 200, body });
+    fetchMock.get(FILM6_URL, { status: 200, body });
+    fetchMock.get(FILM7_URL, { status: 200, body });
+
+    const PLANETS_URL = 'http://swapi.co/api/planets/';
+    const PEOPLE1_URL = 'http://swapi.co/api/people/1';
+    const PEOPLE2_URL = 'http://swapi.co/api/people/2';
+    const info1 = {
+      name: 'Tatooine',
+      terrain: 'rocky',
+      population: 1,
+      climate: 'Tropical',
+      residents: [PEOPLE1_URL]
+    }
+    const info2 = {
+      name: 'Hoth',
+      terrain: 'Ice',
+      population: 2,
+      climate: 'Cold',
+      residents: [PEOPLE2_URL]
+    }
+    const resident1 = ['Luke Skywalker'];
+    const resident2 = ['C-3PO'];
+    const planet1 = new Planet(info1, resident1);
+    const planet2 = new Planet(info2, resident2);
+
+    fetchMock.get(PLANETS_URL, {
+      status: 200,
+      body: { results: [info1, info2] }
+    });
+
+    fetchMock.get(PEOPLE1_URL, {
+      status: 200,
+      body: { name: 'Luke Skywalker' }
+    });
+
+    fetchMock.get(PEOPLE2_URL, {
+      status: 200,
+      body: { name: 'C-3PO' }
+    });
+
+    const wrapper = mount(<App />);
+    const planetsButton = wrapper.find('#fetch-planets-btn')
+
+    wrapper.setState({ activeAnim: true })
+
+    planetsButton.simulate('click');
+
+    expect(wrapper.state('activeAnim')).toBe(false);
   });
 
   // Juan
@@ -838,6 +1253,7 @@ describe('App.js tests', () => {
 
   // Joe
   it.skip('should add correct card to favorites if save button is triggered', () => {
+
   });
 
   it.skip('should render correct favorites length in button when card is added', () => {
