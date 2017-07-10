@@ -26,9 +26,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // const favorites = this.getFavorites();
-    //
-    // this.setState({ favorites });
+    const favorites = this.getFavorites();
+
+    this.setState({ favorites });
     fetchData('/', this);
     window.addEventListener('scroll', this.stickyNav);
   }

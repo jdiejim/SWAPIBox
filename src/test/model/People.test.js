@@ -37,7 +37,7 @@ describe('People.js', () => {
     fetchMock.restore();
   });
 
-  it.skip('should fetch the correct species', async () => {
+  it('should fetch the correct species', async () => {
     let result;
     const expected = {
       species: 'Human',
@@ -58,7 +58,7 @@ describe('People.js', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should fetch the correct homeworld', async () => {
+  it('should fetch the correct homeworld', async () => {
     let result;
     const expected = {
       homeworld: 'Tatooine',
@@ -79,7 +79,7 @@ describe('People.js', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should fetch the correct person', async () => {
+  it('should fetch the correct person', async () => {
     let result;
     const expected = new Person('Luke Skywalker', response1);
 
@@ -102,7 +102,7 @@ describe('People.js', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should fetch the correct people', async () => {
+  it('should fetch the correct people', async () => {
     let result;
     const person1 = new Person('Luke Skywalker', response1);
     const person2 = new Person('R2-D2', response2);
@@ -143,7 +143,7 @@ describe('People.js', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should change state of component', async () => {
+  it('should change state of component', async () => {
     const mockComponent = new MockComponent();
     const person1 = new Person('Luke Skywalker', response1);
     const person2 = new Person('R2-D2', response2);
@@ -203,7 +203,7 @@ describe('People.js', () => {
     expect(fetchMock.called()).toBe(true);
   });
 
-  it.skip('should display an error when fetch fails', async () => {
+  it('should display an error when fetch fails', async () => {
     const mockComponent = new MockComponent();
     const person1 = new Person('Luke Skywalker', response1);
     const person2 = new Person('R2-D2', response2);

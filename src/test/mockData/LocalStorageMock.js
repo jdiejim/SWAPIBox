@@ -1,10 +1,14 @@
 class LocalStorageMock {
   constructor() {
-    this.store = {};
+    this.store = {
+      favorites: '[]'
+    };
   }
 
   clear() {
-    this.store = {};
+    this.store = {
+      favorites: '[]'
+    };
   }
 
   getItem(key) {
@@ -12,7 +16,7 @@ class LocalStorageMock {
   }
 
   setItem(key, value) {
-    this.store[key] = JSON.stringify(value);
+    this.store[key] = value;
   }
 
   removeItem(key) {

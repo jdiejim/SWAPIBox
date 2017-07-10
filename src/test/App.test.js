@@ -23,7 +23,6 @@ describe('App.js tests', () => {
   const resolveAfter2Seconds = () => new Promise(resolve => setTimeout(() => resolve(), 2000));
 
   global.localStorage = new LocalStorageMock();
-  localStorage.setItem('favorites', [])
 
   afterEach(() => {
     expect(fetchMock.calls().unmatched).toEqual([]);
@@ -1294,6 +1293,7 @@ describe('App.js tests', () => {
   });
 
   it('should render correct favorites length in button when card is added', () => {
+    localStorage.clear();
     const body = {
       title: 'The Force Awakens',
       opening_crawl: 'Luke Skywalker has vanished.\r\nIn his absence',
